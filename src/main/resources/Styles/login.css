@@ -1,0 +1,49 @@
+.login-container {
+    -fx-background-color: #EEEEEE;
+}
+
+.login-container Label {
+    -fx-font-size: 1.2em;
+}
+
+/* Account Selector ChoiceBox styles */
+.account_selector {
+    -fx-background-color:#132A13;
+}
+
+.account_selector .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+}
+
+.account_selector .arrow {
+    -fx-background-color: #FFFFFF;
+}
+
+#choice-box-popup-menu {
+    -fx-background-color: #ECF39E;
+ }
+
+.login_form_container Button:hover {
+    -fx-cursor: hand;
+}
+
+#login-lbl {
+    -fx-font-size: 1.4em;
+    -fx-font-weight:bold;
+}
+
+#login-btn {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #132A13;
+    -fx-font-size:1.2em;
+    -fx-pref-width:100;
+    -fx-padding-top: 50;
+}
+
+#error-lbl {
+    -fx-text-fill: red;
+    -fx-font-size: 1.2em;
+}
+
+
