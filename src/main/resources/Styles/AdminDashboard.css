@@ -1,0 +1,13 @@
+.dashboard {
+    -fx-background-color: #EEEEEE;
+    -fx-alignment: center;
+    -fx-alignment: center;
+}
+
+.title {
+    -fx-font-size: 3em;
+}
+
+.sub_title {
+    -fx-font-size: 2em;
+}

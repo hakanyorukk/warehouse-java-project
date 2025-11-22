@@ -1,5 +1,7 @@
 package com.jmc.warehouse.Controllers.Admin;
 
+import com.jmc.warehouse.Models.Model;
+import com.jmc.warehouse.Views.AdminMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
@@ -13,6 +15,19 @@ public class AdminMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addListeners();
+    }
 
+    private void addListeners() {
+        create_agent_btn.setOnAction(event->onAgent());
+        create_owner_btn.setOnAction(event->onOwner());
+    }
+
+    private void onAgent() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_WAREHOUSE_AGENT);
+    }
+
+    private void onOwner() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_WAREHOUSE_OWNER);
     }
 }

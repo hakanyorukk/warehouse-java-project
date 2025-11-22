@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_form" stylesheets="@../../Styles/Profile.css"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.jmc.warehouse.Controllers.Agent.AgentProfileController">
+    <Text layoutX="55.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Agent Profile"/>
+    <VBox layoutX="39.0" layoutY="86.0" prefHeight="600.0" prefWidth="750.0"/>
+</AnchorPane>

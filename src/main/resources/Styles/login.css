@@ -8,17 +8,38 @@
 
 /* Account Selector ChoiceBox styles */
 .account_selector {
-    -fx-background-color:#132A13;
+    -fx-background-color:#ECF39E;
+    -fx-pref-width: 180;
 }
 
 .account_selector .label {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #132A13;
     -fx-font-size: 1.1em;
 }
 
 .account_selector .arrow {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #132A13;
 }
+
+#choice-box-popup-menu {
+    -fx-background-color: #ECF39E;
+ }
+
+ #choice-prompt-text {
+    -fx-font-weight: 400;
+}
+
+ .login_form_container {
+    -fx-alignment: center;
+}
+.login_form_container TextField {
+    -fx-pref-width: 180;
+}
+
+.login_form_container PasswordField {
+    -fx-pref-width: 180;
+}
+
 
 #choice-box-popup-menu {
     -fx-background-color: #ECF39E;

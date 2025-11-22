@@ -1,0 +1,32 @@
+.create_form {
+    -fx-background-color: #EEEEEE;
+    -fx-alignment: center;
+}
+
+.create_form VBox {
+     -fx-padding: 10;
+     -fx-spacing: 5;
+}
+
+.create_form TextField {
+-fx-pref-width: 220;
+    -fx-pref-height: 35;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 1.2em;
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
+}
+
+.title {
+    -fx-font-size: 3em;
+}
+
+.create_form Label {
+    -fx-font-size: 1.6em;
+}
+
+.create_form Button {
+    -fx-background-color: Linear-gradient(to right, #132A13, #253F25);
+    -fx-pref-width: 220;
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #FFFFFF;
+}

@@ -1,0 +1,8 @@
+.create_form {
+    -fx-background-color: #EEEEEE;
+    -fx-alignment: center;
+}
+
+.title {
+    -fx-font-size: 3em;
+}
