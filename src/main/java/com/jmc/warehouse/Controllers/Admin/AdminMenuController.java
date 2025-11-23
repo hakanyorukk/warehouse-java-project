@@ -30,4 +30,5 @@ public class AdminMenuController implements Initializable {
     private void onOwner() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_WAREHOUSE_OWNER);
     }
+
 }

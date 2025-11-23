@@ -15,7 +15,7 @@ public class LoginController implements Initializable {
     public Label username_lbl;
     public TextField username_fld;
     public Label password_lbl;
-    public PasswordField password_fld;
+    public TextField password_fld;
     public Button login_btn;
     public Label error_lbl;
     public ChoiceBox<AccountType> acc_selector;
@@ -31,16 +31,48 @@ public class LoginController implements Initializable {
     private void onLogin() {
         // for accessing current stage
         Stage stage = (Stage) error_lbl.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
 
+        // Admin Login
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
-            Model.getInstance().getViewFactory().showAdminWindow();
+           // Model.getInstance().getViewFactory().showAdminWindow();
+            Model.getInstance().evaluateAdminCred(username_fld.getText(), password_fld.getText());
+            if(Model.getInstance().getAdminLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showAdminWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                username_fld.setText("");
+                password_fld.setText("");
+                error_lbl.setText("No Such Login Credentials.");
+            }
         }
+
+        // Owner Login
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.WAREHOUSE_OWNER) {
-            Model.getInstance().getViewFactory().showOwnerWindow();
+            // Evaluate Owner Login Credentials
+            Model.getInstance().evaluateOwnerCred(username_fld.getText(), password_fld.getText());
+            if(Model.getInstance().getOwnerLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showOwnerWindow();
+                // Close the login stage
+               Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                username_fld.setText("");
+                password_fld.setText("");
+                error_lbl.setText("No Such Login Credentials.");
+            }
+
         }
+
+        // Agent Login
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.WAREHOUSE_AGENT) {
-            Model.getInstance().getViewFactory().showAgentWindow();
+            Model.getInstance().evaluateAgentCred(username_fld.getText(), password_fld.getText());
+            if(Model.getInstance().getAgentLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showAgentWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                username_fld.setText("");
+                password_fld.setText("");
+                error_lbl.setText("No Such Login Credentials.");
+            }
         }
 
         //Model.getInstance().getViewFactory().showAdminWindow();

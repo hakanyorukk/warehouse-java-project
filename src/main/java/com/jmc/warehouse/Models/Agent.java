@@ -1,0 +1,35 @@
+package com.jmc.warehouse.Models;
+
+import javafx.beans.property.*;
+
+import java.time.LocalDate;
+
+public class Agent {
+    private final StringProperty fullName;
+    private final StringProperty username;
+    private final StringProperty email;
+    private final StringProperty phone;
+    private final DoubleProperty commissionRate;
+    private final ObjectProperty<LocalDate> dateCreated;
+
+    public Agent(String fullName, String username, String email, String phone, Double commissionRate, LocalDate dateCreated) {
+        this.fullName = new SimpleStringProperty(this, "Full Name", fullName);
+        this.username = new SimpleStringProperty(this, "Username", username);
+        this.email = new SimpleStringProperty(this, "Email", email);
+        this.phone = new SimpleStringProperty(this, "Phone", phone);
+        this.commissionRate = new SimpleDoubleProperty(this, "Commission Rate", commissionRate);
+        this.dateCreated = new SimpleObjectProperty<>(this, "Date", dateCreated);
+    }
+
+    public StringProperty fullNameProperty() {return fullName;}
+
+    public StringProperty usernameProperty() {return username;}
+
+    public StringProperty emailProperty() {return email;}
+
+    public StringProperty phoneProperty() {return phone;}
+
+    public DoubleProperty commissionRateProperty() {return commissionRate;}
+
+    public  ObjectProperty<LocalDate> dateProperty() {return dateCreated;}
+}
