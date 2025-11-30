@@ -1,6 +1,9 @@
 package com.jmc.warehouse.Controllers;
 
+import com.jmc.warehouse.Models.AdminEntity;
+import com.jmc.warehouse.Models.AgentEntity;
 import com.jmc.warehouse.Models.Model;
+import com.jmc.warehouse.Models.OwnerEntity;
 import com.jmc.warehouse.Views.AccountType;
 import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
@@ -24,7 +27,7 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         acc_selector.setItems(FXCollections.observableArrayList(AccountType.ADMIN, AccountType.WAREHOUSE_AGENT, AccountType.WAREHOUSE_OWNER));
         acc_selector.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
-        acc_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue()) );
+        acc_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue()));
         login_btn.setOnAction(event -> onLogin());
     }
 
@@ -36,7 +39,10 @@ public class LoginController implements Initializable {
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
            // Model.getInstance().getViewFactory().showAdminWindow();
             Model.getInstance().evaluateAdminCred(username_fld.getText(), password_fld.getText());
+            AdminEntity admin = Model.getInstance().getDatabaseDriver()
+                    .getAdminData(username_fld.getText(), password_fld.getText());
             if(Model.getInstance().getAdminLoginSuccessFlag()) {
+                Model.getInstance().setCurrentAdmin(admin);
                 Model.getInstance().getViewFactory().showAdminWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
@@ -50,10 +56,16 @@ public class LoginController implements Initializable {
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.WAREHOUSE_OWNER) {
             // Evaluate Owner Login Credentials
             Model.getInstance().evaluateOwnerCred(username_fld.getText(), password_fld.getText());
+            OwnerEntity owner = Model.getInstance().getDatabaseDriver().getOwnerData(username_fld.getText(), password_fld.getText());
             if(Model.getInstance().getOwnerLoginSuccessFlag()) {
+                Model.getInstance().setCurrentOwner(owner);
                 Model.getInstance().getViewFactory().showOwnerWindow();
                 // Close the login stage
                Model.getInstance().getViewFactory().closeStage(stage);
+
+                // Set Owner Warehouses
+                OwnerEntity currentOwner = Model.getInstance().getCurrentOwner();
+                Model.getInstance().setOwnerWarehouses(currentOwner);
             } else {
                 username_fld.setText("");
                 password_fld.setText("");
@@ -65,9 +77,16 @@ public class LoginController implements Initializable {
         // Agent Login
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.WAREHOUSE_AGENT) {
             Model.getInstance().evaluateAgentCred(username_fld.getText(), password_fld.getText());
+            AgentEntity agent = Model.getInstance().getDatabaseDriver().getAgentData(username_fld.getText(), password_fld.getText());
             if(Model.getInstance().getAgentLoginSuccessFlag()) {
+                Model.getInstance().setCurrentAgent(agent);
                 Model.getInstance().getViewFactory().showAgentWindow();
+
                 Model.getInstance().getViewFactory().closeStage(stage);
+
+                // Set Agent Rental Warehouses
+                AgentEntity currentAgent = Model.getInstance().getCurrentAgent();
+                Model.getInstance().setAgentRentalWarehouses(currentAgent);
             } else {
                 username_fld.setText("");
                 password_fld.setText("");

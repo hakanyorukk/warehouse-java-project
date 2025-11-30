@@ -30,7 +30,6 @@ public class AdminEntity {
         this.createdAt = createdAt;
     }
 
-    // Getters and Setters (same pattern as OwnerEntity)
     public Integer getAgentId() { return adminId; }
     public void setAgentId(Integer agentId) { this.adminId = agentId; }
 

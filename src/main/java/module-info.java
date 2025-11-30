@@ -6,6 +6,12 @@ module com.jmc.warehouse {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires java.naming;
+    requires javafx.base;
+    //requires com.jmc.warehouse;
+    //requires com.jmc.warehouse;
+    //requires com.jmc.warehouse;
+    // requires com.jmc.warehouse;
+
 
     opens com.jmc.warehouse to javafx.fxml;
     exports com.jmc.warehouse;

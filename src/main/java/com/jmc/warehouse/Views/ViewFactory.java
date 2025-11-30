@@ -2,17 +2,15 @@ package com.jmc.warehouse.Views;
 
 import com.jmc.warehouse.Controllers.Admin.AdminController;
 import com.jmc.warehouse.Controllers.Agent.AgentController;
+import com.jmc.warehouse.Controllers.Agent.EditRentalWarehouseController;
 import com.jmc.warehouse.Controllers.Owner.OwnerController;
+import com.jmc.warehouse.Models.Model;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class ViewFactory {
 
@@ -21,14 +19,23 @@ public class ViewFactory {
     // Admin views
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane adminDashboardView;
+    private AnchorPane createOwnerView;
+    private AnchorPane createAgentView;
 
     // Owner views
     private final ObjectProperty<OwnerMenuOptions> ownerSelectedMenuItem;
-    private AnchorPane createOwnerView;
+    private AnchorPane createWarehouseView;
+    private AnchorPane ownerProfileView;
+    private AnchorPane ownerReportsView;
+    private AnchorPane ownerNotificationsView;
 
     // Agent Views
     private final ObjectProperty<AgentMenuOptions> agentSelectedMenuItem;
-    private AnchorPane createAgentView;
+    private AnchorPane createRentalWarehouseView;
+    private AnchorPane agentProfileView;
+    private AnchorPane agentReportsView;
+    private AnchorPane agentNotificationsView;
+
 
     public ViewFactory() {
         this.loginAccountType = AccountType.ADMIN; // default value
@@ -40,22 +47,21 @@ public class ViewFactory {
     public AccountType getLoginAccountType() {
         return loginAccountType;
     }
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
+    }
 
     public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem() {
         return adminSelectedMenuItem;
     }
-
     public ObjectProperty<OwnerMenuOptions> getOwnerSelectedMenuItem() {
         return ownerSelectedMenuItem;
     }
-
     public  ObjectProperty<AgentMenuOptions> getAgentSelectedMenuItem() {
         return agentSelectedMenuItem;
     }
 
-    public void setLoginAccountType(AccountType loginAccountType) {
-        this.loginAccountType = loginAccountType;
-    }
+    // Admin Views
     public AnchorPane getAdminDashboardView() {
         if(adminDashboardView == null) {
             try {
@@ -66,7 +72,6 @@ public class ViewFactory {
         }
         return adminDashboardView;
     }
-
     public AnchorPane getCreateAgentView() {
         if(createAgentView == null) {
             try {
@@ -77,7 +82,6 @@ public class ViewFactory {
         }
         return  createAgentView;
     }
-
     public AnchorPane getCreateOwnerView() {
         if(createOwnerView == null) {
             try {
@@ -87,6 +91,90 @@ public class ViewFactory {
             }
         }
         return  createOwnerView;
+    }
+
+    // Owner views
+    public AnchorPane getCreateWarehouseView() {
+        if(createWarehouseView == null) {
+            try {
+                createWarehouseView = new FXMLLoader(getClass().getResource("/Fxml/Owner/CreateWarehouse.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return  createWarehouseView;
+    }
+    public AnchorPane getOwnerProfileView() {
+        if(ownerProfileView == null) {
+            try {
+                ownerProfileView = new FXMLLoader(getClass().getResource("/Fxml/Owner/Profile.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return ownerProfileView;
+    }
+    public AnchorPane getOwnerReportsView() {
+        if(ownerReportsView == null) {
+            try {
+                ownerReportsView = new FXMLLoader(getClass().getResource("/Fxml/Owner/OwnerReports.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return ownerReportsView;
+    }
+    public AnchorPane getOwnerNotificationsView() {
+        if(ownerNotificationsView == null) {
+            try {
+                ownerNotificationsView = new FXMLLoader(getClass().getResource("/Fxml/Owner/OwnerNotification.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return ownerNotificationsView;
+    }
+
+    // Agent views
+    public AnchorPane getCreateRentalWarehouseView() {
+        if(createRentalWarehouseView == null) {
+            try {
+                createRentalWarehouseView = new FXMLLoader(getClass().getResource("/Fxml/Agent/CreateRentalWarehouse.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return createRentalWarehouseView;
+    }
+    public AnchorPane getAgentProfileView() {
+        if(agentProfileView == null) {
+            try {
+                agentProfileView = new FXMLLoader(getClass().getResource("/Fxml/Agent/Profile.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return agentProfileView;
+    }
+    public AnchorPane getAgentReportsView() {
+        if(agentReportsView == null) {
+            try {
+                agentReportsView = new FXMLLoader(getClass().getResource("/Fxml/Agent/AgentReports.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return agentReportsView;
+    }
+    public AnchorPane getAgentNotificationsView() {
+        if(agentNotificationsView == null) {
+            try {
+                agentNotificationsView = new FXMLLoader(getClass().getResource("/Fxml/Agent/AgentNotifications.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return agentNotificationsView;
     }
 
     public void showLoginWindow() {
@@ -103,25 +191,28 @@ public class ViewFactory {
         stage.setTitle("Warehouse");
         stage.show();
     }
-
     public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
         AdminController adminController = new AdminController();
         loader.setController(adminController);
         createStage(loader);
     }
-
     public void showOwnerWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Owner/Owner.fxml"));
         OwnerController ownerController = new OwnerController();
         loader.setController(ownerController);
         createStage(loader);
     }
-
     public void showAgentWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Agent/Agent.fxml"));
         AgentController agentController = new AgentController();
         loader.setController(agentController);
+        createStage(loader);
+    }
+    public void showRentalWarehouseEditWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Agent/EditRentalWarehouse.fxml"));
+        EditRentalWarehouseController editRentalWarehouseController = new EditRentalWarehouseController(Model.getInstance().getRentalWarehouseToEdit());
+        loader.setController(editRentalWarehouseController);
         createStage(loader);
     }
 
@@ -137,9 +228,7 @@ public class ViewFactory {
         stage.setTitle("Warehouse");
         stage.show();
     }
-
     public void closeStage(Stage stage) {
         stage.close();
     }
-
 }

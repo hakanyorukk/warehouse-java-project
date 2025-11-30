@@ -29,21 +29,27 @@ public class OwnerEntity {
     @Column(name = "tax_id")
     private String taxId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_by", referencedColumnName = "admin_id")
+    private AdminEntity createdBy;
+
     @Column(name = "created_at")
     private LocalDate createdAt;
+
 
     // No-argument constructor (required by Hibernate)
     public OwnerEntity() {}
 
     // Constructor with parameters
     public OwnerEntity(String fullName, String username, String email, String password,
-                       String phone, String taxId, LocalDate createdAt) {
+                       String phone, String taxId, AdminEntity createdBy, LocalDate createdAt) {
         this.fullName = fullName;
         this.username = username;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.taxId = taxId;
+        this.createdBy = createdBy;
         this.createdAt = createdAt;
     }
 
@@ -68,6 +74,9 @@ public class OwnerEntity {
 
     public String getTaxId() { return taxId; }
     public void setTaxId(String taxId) { this.taxId = taxId; }
+
+    public AdminEntity getCreatedBy() { return createdBy; }
+    public void setCreatedBy(AdminEntity createdBy) { this.createdBy = createdBy; }
 
     public LocalDate getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDate createdAt) { this.createdAt = createdAt; }

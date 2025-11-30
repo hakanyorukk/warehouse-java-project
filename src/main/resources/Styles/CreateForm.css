@@ -1,15 +1,16 @@
 .create_form {
     -fx-background-color: #EEEEEE;
     -fx-alignment: center;
+    -fx-spacing: 4;
 }
 
 .create_form VBox {
      -fx-padding: 10;
-     -fx-spacing: 5;
+     -fx-spacing: 4;
 }
 
 .create_form TextField {
--fx-pref-width: 220;
+-fx-pref-width: 280;
     -fx-pref-height: 35;
     -fx-background-color: #FFFFFF;
     -fx-font-size: 1.2em;
@@ -30,3 +31,30 @@
     -fx-font-size: 1.5em;
     -fx-text-fill: #FFFFFF;
 }
+
+.create_form Button:hover {
+    -fx-cursor: hand;
+}
+
+.account_selector {
+    -fx-background-color:#ECF39E;
+    -fx-pref-width: 280;
+}
+
+.account_selector .label {
+    -fx-text-fill: #132A13;
+    -fx-font-size: 1.1em;
+}
+
+.account_selector .arrow {
+    -fx-background-color: #132A13;
+}
+
+#choice-box-popup-menu {
+    -fx-background-color: #ECF39E;
+ }
+
+ #choice-prompt-text {
+    -fx-font-weight: 400;
+}
+

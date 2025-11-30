@@ -29,6 +29,10 @@ public class AgentEntity {
     @Column(name = "commission_rate")
     private Double commissionRate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "created_by", referencedColumnName = "admin_id")
+    private AdminEntity createdBy;
+
     @Column(name = "created_at")
     private LocalDate createdAt;
 
@@ -37,13 +41,14 @@ public class AgentEntity {
 
     // Constructor with parameters
     public AgentEntity(String fullName, String username, String email, String password,
-                       String phone, Double commissionRate, LocalDate createdAt) {
+                       String phone, Double commissionRate, AdminEntity createdBy, LocalDate createdAt) {
         this.fullName = fullName;
         this.username = username;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.commissionRate = commissionRate;
+        this.createdBy = createdBy;
         this.createdAt = createdAt;
     }
 
@@ -69,6 +74,15 @@ public class AgentEntity {
     public Double getCommissionRate() { return commissionRate; }
     public void setCommissionRate(Double commissionRate) { this.commissionRate = commissionRate; }
 
+    public AdminEntity getCreatedBy() { return createdBy; }
+    public void setCreatedBy(AdminEntity createdBy) { this.createdBy = createdBy; }
+
     public LocalDate getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDate createdAt) { this.createdAt = createdAt; }
+
+    @Override
+    public String toString() {
+        return getFullName();
+    }
+
 }

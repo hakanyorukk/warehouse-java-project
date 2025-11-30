@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="listview_container"
+            stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.jmc.warehouse.Controllers.Agent.AgentNotificationsController">
+    <Text layoutX="303.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented Warehouses"
+          textAlignment="CENTER" AnchorPane.leftAnchor="303.0" AnchorPane.rightAnchor="303.015625"/>
+    <ListView fx:id="agent_notifications_listview" layoutX="51.0" layoutY="64.0" prefHeight="640.0" prefWidth="830.0"
+              styleClass="list-cell" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+              AnchorPane.topAnchor="70.0"/>
+</AnchorPane>

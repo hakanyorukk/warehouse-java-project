@@ -2,6 +2,12 @@ package com.jmc.warehouse.Models;
 
 import com.jmc.warehouse.Views.AccountType;
 import com.jmc.warehouse.Views.ViewFactory;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.List;
 
 public class Model {
     private static Model model;
@@ -15,6 +21,14 @@ public class Model {
    private final Owner owner;
    private final Agent agent;
    private final Admin admin;
+   private final Warehouse warehouse;
+   private final RentalWarehouse rentalWarehouse;
+   private final ObjectProperty<AdminEntity> currentAdmin;
+   private final ObjectProperty<AgentEntity> currentAgent;
+   private final ObjectProperty<OwnerEntity> currentOwner;
+
+   private final ObservableList<Warehouse> warehouses;
+   private final ObservableList<RentalWarehouse> rentalwarehouses;
 
     private Model() {
         this.viewFactory = new ViewFactory();
@@ -22,9 +36,16 @@ public class Model {
         this.adminLoginSuccessFlag = false;
         this.ownerLoginSuccessFlag = false;
         this.agentLoginSuccessFlag = false;
-        this.owner = new Owner("", "", "", "", "", null);
+        this.owner = new Owner("", "", "", "", "", null,null);
         this.admin = new Admin("", null);
-        this.agent = new Agent("", "", "", "", 0.0, null);
+        this.agent = new Agent("", "", "", "", 0.0, null, null);
+        this.warehouse = new Warehouse(0, null, "", "", "", 0.0, null, null, null);
+        this.rentalWarehouse = new RentalWarehouse(0, null, null,"", null, null, null);
+        this.currentAdmin = new SimpleObjectProperty<>();
+        this.currentAgent = new SimpleObjectProperty<>();
+        this.currentOwner = new SimpleObjectProperty<>();
+        this.warehouses = FXCollections.observableArrayList();
+        this.rentalwarehouses = FXCollections.observableArrayList();
     }
 
     public static synchronized Model getInstance() {
@@ -109,5 +130,106 @@ public class Model {
         }
     }
 
+    // get warehouse from database
+    public ObservableList<Warehouse> getOwnerWarehouses() {
+        return warehouses;
+    }
 
+    // Load all warehouses for current owner
+    public void setOwnerWarehouses(OwnerEntity currentOwner) {
+        warehouses.clear();
+
+        List<WarehouseEntity> warehouseEntities =
+                databaseDriver.getWarehousesByOwnerId(currentOwner.getOwnerId());
+
+        if(warehouseEntities == null) {
+            return;
+        }
+        for (WarehouseEntity entity : warehouseEntities) {
+            Warehouse warehouse = new Warehouse(
+                    entity.getId(),
+                    entity.getOwnerId(),
+                    entity.getName(),
+                    entity.getAddress(),
+                    entity.getDimensions(),
+                    entity.getArea(),
+                    entity.getClimaticConditions(),
+                    entity.getDateCreated(),
+                    entity.getAgent()
+
+            );
+            warehouses.add(warehouse);
+        }
+    }
+
+    // load all RentalWarehouses for current agent
+    public ObservableList<RentalWarehouse> getAgentRentalWarehouses() {
+        return rentalwarehouses;
+    }
+    // Load all warehouses for current owner
+    public void setAgentRentalWarehouses(AgentEntity currentAgent) {
+        rentalwarehouses.clear();
+
+        List<RentalWarehouseEntity> rentalWarehouseEntities =
+                databaseDriver.getRentalWarehousesByAgentId(currentAgent.getAgentId());
+
+        if (rentalWarehouseEntities == null) {
+            return;
+        }
+        for (RentalWarehouseEntity entity : rentalWarehouseEntities) {
+            RentalWarehouse rentalwarehouse = new RentalWarehouse(
+                    entity.getId(),
+                    entity.getWarehouseId(),
+                    entity.getAgentId(),
+                    entity.getTenantName(),
+                    entity.getMonthlyPrice(),
+                    entity.getStartDate(),
+                    entity.getEndDate()
+            );
+            rentalwarehouses.add(rentalwarehouse);
+        }
+    }
+
+    public RentalWarehouse getRentalWarehouseToEdit() {
+        return rentalWarehouse;
+    }
+
+    public void setRentalWarehouseToEdit(int rentalWarehouseId) {
+        // Implementation for setting rental warehouse to edit
+        RentalWarehouseEntity entity = databaseDriver.getRentalWarehouseById(rentalWarehouseId);
+        if (entity != null) {
+            rentalWarehouse.idProperty().set(entity.getId());
+            rentalWarehouse.warehouseNameProperty().set(entity.getWarehouseId());
+            rentalWarehouse.agentIdProperty().set(entity.getAgentId());
+            rentalWarehouse.tenantNameProperty().set(entity.getTenantName());
+            rentalWarehouse.monthlyPriceProperty().set(entity.getMonthlyPrice());
+            rentalWarehouse.startDateProperty().set(entity.getStartDate());
+            rentalWarehouse.endDateProperty().set(entity.getEndDate());
+        }
+    }
+
+    public AdminEntity getCurrentAdmin() {
+        return currentAdmin.get();
+    }
+    public void setCurrentAdmin(AdminEntity admin) {
+        this.currentAdmin.set(admin);
+    }
+
+    public OwnerEntity getCurrentOwner() {
+        return currentOwner.get();
+    }
+    public void setCurrentOwner(OwnerEntity owner) {
+        this.currentOwner.set(owner);
+    }
+
+    public AgentEntity getCurrentAgent() {
+        return currentAgent.get();
+    }
+    public void setCurrentAgent(AgentEntity agent) {
+        this.currentAgent.set(agent);
+    }
+
+    public ObjectProperty<AdminEntity> currentAdminProperty() {
+        return currentAdmin;
+    }
 }

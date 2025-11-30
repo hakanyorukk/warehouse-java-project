@@ -5,22 +5,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="TOP_CENTER" prefHeight="750.0" prefWidth="200.0" styleClass="menu_controller" stylesheets="@../../Styles/Menu.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button fx:id="create_warehous_btn" mnemonicParsing="false" text="Create warehouse" />
-      <Line endX="150.0" />
-      <Button fx:id="reports_btn" mnemonicParsing="false" text="Reports" />
-      <Button fx:id="notifications_btn" mnemonicParsing="false" text="Notifications" />
-      <Line endX="150.0" />
-      <Button fx:id="profile_btn" mnemonicParsing="false" text="Profile">
-         <graphic>
-            <FontAwesomeIconView glyphName="USER" />
-         </graphic>
-      </Button>
-      <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">
-         <graphic>
-            <FontAwesomeIconView glyphName="EXTERNAL_LINK" />
-         </graphic>
-      </Button>
-   </children>
+<VBox alignment="TOP_CENTER" prefHeight="750.0" prefWidth="200.0" styleClass="menu_controller"
+      stylesheets="@../../Styles/Menu.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Owner.OwnerMenuController">
+    <Button fx:id="create_warehous_btn" mnemonicParsing="false" text="Create warehouse"/>
+    <Line endX="150.0"/>
+    <Button fx:id="reports_btn" mnemonicParsing="false" text="Reports"/>
+    <Button fx:id="notifications_btn" mnemonicParsing="false" text="Notifications"/>
+    <Line endX="150.0"/>
+    <Button fx:id="profile_btn" mnemonicParsing="false" text="Profile">
+        <graphic>
+          <FontAwesomeIconView glyphName="USER"/>
+        </graphic>
+    </Button>
+    <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">
+        <graphic>
+          <FontAwesomeIconView glyphName="EXTERNAL_LINK"/>
+        </graphic>
+    </Button>
 </VBox>

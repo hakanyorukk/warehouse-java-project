@@ -10,6 +10,7 @@ public class OwnerConverter {
                 entity.getEmail(),
                 entity.getPhone(),
                 entity.getTaxId(),
+                entity.getCreatedBy(),
                 entity.getCreatedAt()
         );
     }
@@ -22,6 +23,7 @@ public class OwnerConverter {
         entity.setEmail(model.emailProperty().get());
         entity.setPhone(model.phoneProperty().get());
         entity.setTaxId(model.taxIdProperty().get());
+        entity.setCreatedBy(model.createdByProperty().get());
         entity.setCreatedAt(model.dateProperty().get());
         return entity;
     }

@@ -10,6 +10,7 @@ public class AgentConverter {
                 entity.getEmail(),
                 entity.getPhone(),
                 entity.getCommissionRate(),
+                entity.getCreatedBy(),
                 entity.getCreatedAt()
         );
     }
@@ -22,6 +23,7 @@ public class AgentConverter {
         entity.setEmail(model.emailProperty().get());
         entity.setPhone(model.phoneProperty().get());
         entity.setCommissionRate(model.commissionRateProperty().get());
+        entity.setCreatedBy(model.createdByProperty().get());
         entity.setCreatedAt(model.dateProperty().get());
         return entity;
     }

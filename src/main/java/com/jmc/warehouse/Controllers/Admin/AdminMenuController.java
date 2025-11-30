@@ -4,6 +4,7 @@ import com.jmc.warehouse.Models.Model;
 import com.jmc.warehouse.Views.AdminMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ public class AdminMenuController implements Initializable {
     private void addListeners() {
         create_agent_btn.setOnAction(event->onAgent());
         create_owner_btn.setOnAction(event->onOwner());
+        logout_btn.setOnAction(event -> onLogout());
     }
 
     private void onAgent() {
@@ -29,6 +31,17 @@ public class AdminMenuController implements Initializable {
 
     private void onOwner() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_WAREHOUSE_OWNER);
+    }
+
+    private void onLogout() {
+        // Get Stage
+        Stage stage = (Stage) create_owner_btn.getScene().getWindow();
+        // Close the Admin window
+        Model.getInstance().getViewFactory().closeStage(stage);
+        // Show Login Window
+        Model.getInstance().getViewFactory().showLoginWindow();
+        // Set Admin Login Success Flag to False
+        Model.getInstance().setAdminLoginSuccessFlag(false);
     }
 
 }
