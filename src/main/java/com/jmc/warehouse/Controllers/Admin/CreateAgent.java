@@ -1,13 +1,12 @@
 package com.jmc.warehouse.Controllers.Admin;
 
-import com.jmc.warehouse.Models.AdminEntity;
-import com.jmc.warehouse.Models.AgentEntity;
+import com.jmc.warehouse.Models.Entities.AdminEntity;
+import com.jmc.warehouse.Models.Entities.AgentEntity;
 import com.jmc.warehouse.Models.Model;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.time.LocalDate;

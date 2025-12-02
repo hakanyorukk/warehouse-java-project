@@ -1,7 +1,6 @@
 package com.jmc.warehouse.Views;
 
 import com.jmc.warehouse.Controllers.Owner.WarehouseCellController;
-import com.jmc.warehouse.Models.OwnerEntity;
 import com.jmc.warehouse.Models.Warehouse;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;

@@ -1,7 +1,7 @@
 package com.jmc.warehouse.Controllers.Owner;
 
 import com.jmc.warehouse.Models.Model;
-import com.jmc.warehouse.Models.OwnerEntity;
+import com.jmc.warehouse.Models.Entities.OwnerEntity;
 import com.jmc.warehouse.Models.Warehouse;
 import com.jmc.warehouse.Views.WarehouseCellFactory;
 import javafx.fxml.Initializable;

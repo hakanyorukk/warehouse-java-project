@@ -9,9 +9,9 @@ module com.jmc.warehouse {
     requires javafx.base;
     //requires com.jmc.warehouse;
     //requires com.jmc.warehouse;
-    //requires com.jmc.warehouse;
-    // requires com.jmc.warehouse;
 
+
+    opens com.jmc.warehouse.Models.Entities to org.hibernate.orm.core;
 
     opens com.jmc.warehouse to javafx.fxml;
     exports com.jmc.warehouse;
@@ -21,6 +21,7 @@ module com.jmc.warehouse {
     exports com.jmc.warehouse.Controllers.Agent;
     exports com.jmc.warehouse.Controllers.Owner;
     exports com.jmc.warehouse.Controllers.Admin;
+    exports com.jmc.warehouse.Models.Entities;
 
 
 }

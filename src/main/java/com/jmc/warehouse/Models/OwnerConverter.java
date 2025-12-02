@@ -1,5 +1,7 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.OwnerEntity;
+
 public class OwnerConverter {
 
     // Convert Entity to JavaFX Model

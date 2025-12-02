@@ -1,6 +1,9 @@
 package com.jmc.warehouse.Controllers.Agent;
 
 import com.jmc.warehouse.Models.*;
+import com.jmc.warehouse.Models.Entities.AgentEntity;
+import com.jmc.warehouse.Models.Entities.RentalWarehouseEntity;
+import com.jmc.warehouse.Models.Entities.WarehouseEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;

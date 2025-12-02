@@ -1,4 +1,4 @@
-package com.jmc.warehouse.Models;
+package com.jmc.warehouse.Models.Entities;
 
 import com.jmc.warehouse.Views.ClimaticConditions;
 import jakarta.persistence.*;

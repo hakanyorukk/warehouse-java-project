@@ -1,6 +1,7 @@
 package com.jmc.warehouse.Controllers.Owner;
 
 
+import com.jmc.warehouse.Models.Model;
 import com.jmc.warehouse.Models.Warehouse;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -37,5 +38,13 @@ public class WarehouseCellController implements Initializable {
                 warehouse.agentProperty().asString()
         );
 
+        edit_warehouse.setOnAction(event -> onWarehouseForm(warehouse.getId()));
+
+    }
+
+    private void onWarehouseForm(int warehouseId) {
+        Model.getInstance().setWarehouseToEdit(warehouseId);
+        Model.getInstance().getViewFactory().showWarehouseEditWindow();
+        // Model.getInstance().getViewFactory().getAgentSelectedMenuItem().set(AgentMenuOptions.CREATE_RENTAL_FORM);
     }
 }

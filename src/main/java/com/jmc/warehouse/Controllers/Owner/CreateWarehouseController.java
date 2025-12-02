@@ -1,6 +1,9 @@
 package com.jmc.warehouse.Controllers.Owner;
 
 import com.jmc.warehouse.Models.*;
+import com.jmc.warehouse.Models.Entities.AgentEntity;
+import com.jmc.warehouse.Models.Entities.OwnerEntity;
+import com.jmc.warehouse.Models.Entities.WarehouseEntity;
 import com.jmc.warehouse.Views.ClimaticConditions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

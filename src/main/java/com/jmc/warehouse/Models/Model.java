@@ -1,5 +1,6 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.*;
 import com.jmc.warehouse.Views.AccountType;
 import com.jmc.warehouse.Views.ViewFactory;
 import javafx.beans.property.ObjectProperty;
@@ -205,6 +206,25 @@ public class Model {
             rentalWarehouse.monthlyPriceProperty().set(entity.getMonthlyPrice());
             rentalWarehouse.startDateProperty().set(entity.getStartDate());
             rentalWarehouse.endDateProperty().set(entity.getEndDate());
+        }
+    }
+
+    public Warehouse getWarehouseToEdit() {
+        return warehouse;
+    }
+
+    public void setWarehouseToEdit(int warehouseId) {
+        WarehouseEntity entity = databaseDriver.getWarehouseById(warehouseId);
+        if (entity != null) {
+            warehouse.idProperty().set(entity.getId());
+            warehouse.ownerIdProperty().set(entity.getOwnerId());
+            warehouse.nameProperty().set(entity.getName());
+            warehouse.addressProperty().set(entity.getAddress());
+            warehouse.dimensionsProperty().set(entity.getDimensions());
+            warehouse.areaProperty().set(entity.getArea());
+            warehouse.climaticConProperty().set(entity.getClimaticConditions());
+            warehouse.dateProperty().set(entity.getDateCreated());
+            warehouse.agentProperty().set(entity.getAgent());
         }
     }
 

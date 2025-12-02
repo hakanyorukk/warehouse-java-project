@@ -1,5 +1,8 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.*;
+import com.jmc.warehouse.Views.ClimaticConditions;
+import org.hibernate.Internal;
 import org.hibernate.query.Query;
 import org.hibernate.Transaction;
 import org.hibernate.Session;
@@ -156,50 +159,7 @@ public class DataBaseDriver {
         }
     }
 
-    public boolean updateRentalWarehouse(
-            Integer id,
-            String tenantName,
-            BigDecimal monthlyPrice,
-            LocalDate startDate,
-            LocalDate endDate
-    ) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = null;
 
-        try {
-            transaction = session.beginTransaction();
-            // Load existing entity
-            RentalWarehouseEntity rentalWarehouse = session.get(RentalWarehouseEntity.class, id);
-            if (rentalWarehouse == null) {
-                System.out.println("Rental warehouse not found");
-                System.out.println(id);
-                return false;
-            }
-            // Update ONLY fields that are NOT NULL
-            if (tenantName != null) {
-                rentalWarehouse.setTenantName(tenantName);
-            }
-            if (monthlyPrice != null) {
-                rentalWarehouse.setMonthlyPrice(monthlyPrice);
-            }
-            if (startDate != null) {
-                rentalWarehouse.setStartDate(startDate);
-            }
-            if (endDate != null) {
-                rentalWarehouse.setEndDate(endDate);
-            }
-            // Persist ONLY updated fields
-            session.update(rentalWarehouse);
-            transaction.commit();
-            return true;
-        } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            e.printStackTrace();
-            return false;
-        } finally {
-            session.close();
-        }
-    }
 
     // Create new Owner
     public boolean createOwner(OwnerEntity owner) {
@@ -286,13 +246,93 @@ public class DataBaseDriver {
 
     // ==================== UPDATE OPERATIONS ====================
 
+    public boolean updateRentalWarehouse(
+            Integer id,
+            String tenantName,
+            BigDecimal monthlyPrice,
+            LocalDate startDate,
+            LocalDate endDate
+    ) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            // Load existing entity
+            RentalWarehouseEntity rentalWarehouse = session.get(RentalWarehouseEntity.class, id);
+            if (rentalWarehouse == null) {
+                System.out.println("Rental warehouse not found");
+                System.out.println(id);
+                return false;
+            }
+            // Update ONLY fields that are NOT NULL
+            if (tenantName != null) {
+                rentalWarehouse.setTenantName(tenantName);
+            }
+            if (monthlyPrice != null) {
+                rentalWarehouse.setMonthlyPrice(monthlyPrice);
+            }
+            if (startDate != null) {
+                rentalWarehouse.setStartDate(startDate);
+            }
+            if (endDate != null) {
+                rentalWarehouse.setEndDate(endDate);
+            }
+            // Persist ONLY updated fields
+            session.update(rentalWarehouse);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+
     // Update warehouse
-    public boolean updateWarehouse(WarehouseEntity warehouse) {
+    public boolean updateWarehouse(Integer id, String name, String address, String dimensions, Double area, ClimaticConditions climaticConditions, AgentEntity assignedAgent) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.merge(warehouse);  // Use merge to update
+            // Load existing entity
+            WarehouseEntity warehouse = session.get(WarehouseEntity.class, id);
+            if(warehouse == null) {
+                System.out.println("Warehouse not found");
+                return false;
+            }
+            // Update ONLY fields that are NOT NULL
+            if(name!= null) {
+                warehouse.setName(name);
+            }
+            if(address != null) {
+                warehouse.setAddress(address);
+            }
+            if(area != null) {
+                warehouse.setArea(area);
+            }
+            if(dimensions != null) {
+                warehouse.setDimensions(dimensions);
+            }
+            if(climaticConditions != null) {
+                warehouse.setClimaticConditions(climaticConditions);
+            }
+            // If there's an agent with an ID, load the managed entity
+            if (assignedAgent != null && assignedAgent.getAgentId() != null) {
+                AgentEntity managedAgent = session.get(
+                        AgentEntity.class,
+                        assignedAgent.getAgentId()
+                );
+
+                if (managedAgent != null) {
+                    warehouse.setAgent(managedAgent);
+                }
+            }
+            // Persist ONLY updated fields
+
+            session.update(warehouse);  // Use merge to update
             transaction.commit();
             return true;
         } catch (Exception e) {

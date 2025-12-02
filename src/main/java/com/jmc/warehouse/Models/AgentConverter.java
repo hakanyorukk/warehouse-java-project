@@ -1,5 +1,7 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.AgentEntity;
+
 public class AgentConverter {
 
     // Convert Entity to JavaFX Model

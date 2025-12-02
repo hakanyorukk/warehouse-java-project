@@ -3,6 +3,7 @@ package com.jmc.warehouse.Views;
 import com.jmc.warehouse.Controllers.Admin.AdminController;
 import com.jmc.warehouse.Controllers.Agent.AgentController;
 import com.jmc.warehouse.Controllers.Agent.EditRentalWarehouseController;
+import com.jmc.warehouse.Controllers.Owner.EditWarehouseController;
 import com.jmc.warehouse.Controllers.Owner.OwnerController;
 import com.jmc.warehouse.Models.Model;
 import javafx.beans.property.ObjectProperty;
@@ -213,6 +214,12 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Agent/EditRentalWarehouse.fxml"));
         EditRentalWarehouseController editRentalWarehouseController = new EditRentalWarehouseController(Model.getInstance().getRentalWarehouseToEdit());
         loader.setController(editRentalWarehouseController);
+        createStage(loader);
+    }
+    public void showWarehouseEditWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Owner/EditWarehouse.fxml"));
+        EditWarehouseController editWarehouseController = new EditWarehouseController(Model.getInstance().getWarehouseToEdit());
+        loader.setController(editWarehouseController);
         createStage(loader);
     }
 

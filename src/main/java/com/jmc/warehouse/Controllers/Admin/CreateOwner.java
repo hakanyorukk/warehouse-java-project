@@ -1,8 +1,8 @@
 package com.jmc.warehouse.Controllers.Admin;
 
-import com.jmc.warehouse.Models.AdminEntity;
+import com.jmc.warehouse.Models.Entities.AdminEntity;
 import com.jmc.warehouse.Models.Model;
-import com.jmc.warehouse.Models.OwnerEntity;
+import com.jmc.warehouse.Models.Entities.OwnerEntity;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

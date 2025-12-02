@@ -1,9 +1,9 @@
 package com.jmc.warehouse.Controllers;
 
-import com.jmc.warehouse.Models.AdminEntity;
-import com.jmc.warehouse.Models.AgentEntity;
+import com.jmc.warehouse.Models.Entities.AdminEntity;
+import com.jmc.warehouse.Models.Entities.AgentEntity;
 import com.jmc.warehouse.Models.Model;
-import com.jmc.warehouse.Models.OwnerEntity;
+import com.jmc.warehouse.Models.Entities.OwnerEntity;
 import com.jmc.warehouse.Views.AccountType;
 import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;

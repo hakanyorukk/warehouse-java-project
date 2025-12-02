@@ -1,5 +1,6 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.AdminEntity;
 import javafx.beans.property.*;
 
 import java.time.LocalDate;

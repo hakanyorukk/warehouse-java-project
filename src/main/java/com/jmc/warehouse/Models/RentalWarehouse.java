@@ -1,5 +1,7 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.AgentEntity;
+import com.jmc.warehouse.Models.Entities.WarehouseEntity;
 import javafx.beans.property.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;

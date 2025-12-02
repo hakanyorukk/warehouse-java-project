@@ -1,7 +1,6 @@
 package com.jmc.warehouse.Models;
 
-import com.jmc.warehouse.Models.WarehouseEntity;
-import com.jmc.warehouse.Models.Warehouse;
+import com.jmc.warehouse.Models.Entities.WarehouseEntity;
 
 public class WarehouseConverter {
 
