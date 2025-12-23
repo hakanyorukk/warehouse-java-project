@@ -101,7 +101,6 @@ public class Model {
             if(adminEntity != null) {
                 this.admin.userNameProperty().set(adminEntity.getUsername());
                 this.admin.dateProperty().set(adminEntity.getCreatedAt());
-
                 this.adminLoginSuccessFlag = true;
             }
         } catch ( Exception e) {

@@ -3,9 +3,12 @@ package com.jmc.warehouse.Views;
 import com.jmc.warehouse.Controllers.Admin.AdminController;
 import com.jmc.warehouse.Controllers.Agent.AgentController;
 import com.jmc.warehouse.Controllers.Agent.EditRentalWarehouseController;
+import com.jmc.warehouse.Controllers.LoginController;
 import com.jmc.warehouse.Controllers.Owner.EditWarehouseController;
 import com.jmc.warehouse.Controllers.Owner.OwnerController;
 import com.jmc.warehouse.Models.Model;
+import com.jmc.warehouse.Services.LoginService;
+import com.jmc.warehouse.Services.LoginServiceImpl;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
@@ -179,18 +182,28 @@ public class ViewFactory {
     }
 
     public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/login.fxml"));
-        Scene scene = null;
-        // in case of the file that looking for does not exist
         try {
-            scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/login.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            // ✅ Get controller created by JavaFX
+            LoginController controller = loader.getController();
+
+            // ✅ Create real service
+            LoginService loginService =
+                    new LoginServiceImpl(Model.getInstance());
+
+            // ✅ Inject dependency
+            controller.setLoginService(loginService);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Warehouse");
+            stage.show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Warehouse");
-        stage.show();
     }
     public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
