@@ -34,13 +34,13 @@ public class AdminMenuController implements Initializable {
     }
 
     private void onLogout() {
-        // Get Stage
+
         Stage stage = (Stage) create_owner_btn.getScene().getWindow();
-        // Close the Admin window
+
         Model.getInstance().getViewFactory().closeStage(stage);
-        // Show Login Window
+
         Model.getInstance().getViewFactory().showLoginWindow();
-        // Set Admin Login Success Flag to False
+
         Model.getInstance().setAdminLoginSuccessFlag(false);
     }
 

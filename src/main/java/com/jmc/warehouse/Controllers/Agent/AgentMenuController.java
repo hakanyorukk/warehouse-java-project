@@ -31,11 +31,9 @@ public class AgentMenuController implements Initializable {
     private void onCreateForm() {
         Model.getInstance().getViewFactory().getAgentSelectedMenuItem().set(AgentMenuOptions.CREATE_RENTAL_FORM);
     }
-
     private void onReport() {
         Model.getInstance().getViewFactory().getAgentSelectedMenuItem().set(AgentMenuOptions.REPORTS);
     }
-
     private void onNotification() {
         Model.getInstance().getViewFactory().getAgentSelectedMenuItem().set(AgentMenuOptions.NOTIFICATIONS);
     }
@@ -44,13 +42,9 @@ public class AgentMenuController implements Initializable {
     }
 
     private void onLogout() {
-        // Get Stage
         Stage stage = (Stage) create_form_btn.getScene().getWindow();
-        // Close the Agent window
         Model.getInstance().getViewFactory().closeStage(stage);
-        // Show Login Window
         Model.getInstance().getViewFactory().showLoginWindow();
-        // Set Agent Login Success Flag to False
         Model.getInstance().setAgentLoginSuccessFlag(false);
     }
 

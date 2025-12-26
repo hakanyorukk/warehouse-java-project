@@ -7,7 +7,7 @@ module com.jmc.warehouse {
     requires org.hibernate.orm.core;
     requires java.naming;
     requires javafx.base;
-    //requires com.jmc.warehouse;
+    requires org.apache.logging.log4j;
     //requires com.jmc.warehouse;
 
 

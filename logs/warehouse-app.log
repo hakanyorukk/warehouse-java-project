@@ -1,0 +1,95 @@
+2025-12-25 10:39:37 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 10:44:46 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 10:46:36 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 11:23:35 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 11:24:10 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-25 11:24:10 [WARN] com.jmc.warehouse.Controllers.Admin.CreateAgent - Invalid commission rate entered: null
+2025-12-25 11:24:15 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-25 11:24:15 [WARN] com.jmc.warehouse.Controllers.Admin.CreateAgent - Invalid commission rate entered: adfa
+2025-12-25 11:24:24 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-25 11:24:24 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateAgent - Calling createAgent service with username=hakan_y
+2025-12-25 11:24:24 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Agent created successfully: hakan_y
+2025-12-25 16:52:36 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 16:52:37 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-25 16:53:11 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-25 16:53:11 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=admin
+2025-12-25 16:53:11 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-25 16:53:11 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-25 16:53:11 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-25 16:53:38 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-25 16:53:38 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=fads
+2025-12-25 16:53:38 [ERROR] com.jmc.warehouse.Controllers.LoginController - Invalid credentials
+2025-12-25 16:53:38 [WARN] com.jmc.warehouse.Controllers.LoginController - Login fields cleared
+2025-12-25 16:54:02 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-25 16:54:02 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_A
+2025-12-25 16:54:02 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-25 16:54:02 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-25 16:54:02 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-25 16:54:11 [INFO] com.jmc.warehouse.Controllers.Owner.EditWarehouseController - Edit Warehouse Button clicked
+2025-12-25 16:54:11 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Warehouse successfully updated
+2025-12-25 16:54:11 [DEBUG] com.jmc.warehouse.Controllers.Owner.EditWarehouseController - Calling Edit warehouse service name=Test 1234
+2025-12-25 16:54:11 [INFO] com.jmc.warehouse.Controllers.Owner.EditWarehouseController - Warehouse edited successfully
+2025-12-25 16:56:26 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 16:56:27 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-25 16:56:30 [INFO] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-25 16:56:33 [INFO] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-25 16:56:43 [INFO] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=ADMIN
+2025-12-25 16:56:57 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 16:56:57 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-25 16:57:00 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-25 16:57:02 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-25 16:57:07 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=ADMIN
+2025-12-26 08:11:31 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 08:11:31 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 08:11:32 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 08:11:32 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 08:11:42 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 08:11:46 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-26 08:11:54 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 08:11:55 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_A
+2025-12-26 08:11:55 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 08:11:55 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 08:11:55 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 08:18:18 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 08:18:18 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 08:18:19 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 08:18:19 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 08:18:22 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 08:18:22 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=ada
+2025-12-26 08:18:22 [ERROR] com.jmc.warehouse.Controllers.LoginController - Invalid credentials
+2025-12-26 08:18:22 [WARN] com.jmc.warehouse.Controllers.LoginController - Login fields cleared
+2025-12-26 08:18:50 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-26 08:18:55 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 08:18:55 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-26 08:18:55 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_A
+2025-12-26 08:18:55 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 08:18:55 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 08:18:55 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 08:19:16 [INFO] com.jmc.warehouse.Controllers.Agent.RentalWarehouseCellController - Edit rental form clicked
+2025-12-26 08:19:20 [INFO] com.jmc.warehouse.Controllers.Agent.EditRentalWarehouseController - Edit button clicked
+2025-12-26 08:19:20 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Rental warehouse successfully updated
+2025-12-26 08:19:20 [INFO] com.jmc.warehouse.Controllers.Agent.EditRentalWarehouseController - Rental warehouse edited successfully
+2025-12-26 08:37:55 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 08:37:55 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 08:37:56 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 08:37:56 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 08:38:01 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 08:38:01 [INFO] com.jmc.warehouse.Models.Model - Admin credentials successful
+2025-12-26 08:38:01 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=admin
+2025-12-26 08:38:01 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 08:38:01 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 08:38:01 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 08:38:23 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateOwner - Calling createOwner service with username=testOwner1
+2025-12-26 08:38:23 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Owner created successfully username=testOwner1
+2025-12-26 08:38:23 [INFO] com.jmc.warehouse.Controllers.Admin.CreateOwner - Owner created successfully:testOwner1
+2025-12-26 08:38:39 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateOwner - Calling createOwner service with username=
+2025-12-26 08:38:39 [INFO] com.jmc.warehouse.Controllers.Admin.CreateOwner - Owner creation failed: missing fields
+2025-12-26 08:39:13 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-26 08:39:13 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateAgent - Calling createAgent service with username=testAgetn1
+2025-12-26 08:39:13 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Agent created successfully: username=testAgetn1
+2025-12-26 08:39:13 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Agent created successfully: testAgetn1
+2025-12-26 08:39:32 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-26 08:39:32 [WARN] com.jmc.warehouse.Controllers.Admin.CreateAgent - Invalid commission rate entered: 
+2025-12-26 08:39:38 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-26 08:39:38 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateAgent - Calling createAgent service with username=
+2025-12-26 08:39:38 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Agent creation failed: missing fields

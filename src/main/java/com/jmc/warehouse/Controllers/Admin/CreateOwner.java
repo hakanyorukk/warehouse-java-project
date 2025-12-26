@@ -3,10 +3,14 @@ package com.jmc.warehouse.Controllers.Admin;
 import com.jmc.warehouse.Models.Entities.AdminEntity;
 import com.jmc.warehouse.Models.Model;
 import com.jmc.warehouse.Models.Entities.OwnerEntity;
+import com.jmc.warehouse.Services.Admin.CreateOwnerResult;
+import com.jmc.warehouse.Services.Admin.CreateOwnerService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -22,14 +26,20 @@ public class CreateOwner implements Initializable {
     public TextField owner_fullname;
     public Label error_lbl;
 
+    private CreateOwnerService createOwnerService;
+
+    private static final Logger logger = LogManager.getLogger(CreateOwner.class);
+
+    public void setCreateOwnerService(CreateOwnerService createOwnerService) {
+        this.createOwnerService = createOwnerService;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         create_owner_btn.setOnAction(event -> createOwner());
     }
 
-    private void createOwner() {
-        AdminEntity currentAdmin = Model.getInstance().getCurrentAdmin();
-
+    void createOwner() {
         String fullName = owner_fullname.getText();
         String username = owner_username.getText();
         String email = owner_email.getText();
@@ -37,18 +47,27 @@ public class CreateOwner implements Initializable {
         String phone = owner_phone.getText();
         String taxId = owner_taxid.getText();
 
-        if (fullName.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            error_lbl.setText("Please fill all required fields!");
-            return;
+        if(createOwnerService == null) {
+            logger.error("CreateOwnerService was not injected!");
+            throw new IllegalStateException("CreateOwnerService was not injected");
         }
-        OwnerEntity owner = new OwnerEntity(fullName, username, email, password, phone, taxId,currentAdmin, LocalDate.now());
-        boolean success = Model.getInstance().getDatabaseDriver().createOwner(owner);
+
+        logger.debug("Calling createOwner service with username={}", username);
+        CreateOwnerResult result = createOwnerService.createOwner(
+                fullName, username, email, password, phone, taxId
+        );
         error_lbl.setStyle("-fx-text-fill: blue; -fx-font-size: 1.3em; -fx-font-weight: bold;");
-        if(success) {
+
+        if(result == CreateOwnerResult.MISSING_FIELDS) {
+            logger.info("Owner creation failed: missing fields");
+            error_lbl.setText("Please fill all required fields!");
+        } else if(result == CreateOwnerResult.SUCCESS) {
+            logger.info("Owner created successfully:{}", username);
             error_lbl.setText("Owner Created Successfully!");
             clearFields();
         } else {
-            error_lbl.setText("There is a error creating owner!");
+            logger.error("Owner creation failed due to system error for user={}", username);
+            error_lbl.setText("There is an error creating owner!");
         }
     }
 

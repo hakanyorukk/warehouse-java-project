@@ -7,6 +7,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
@@ -30,6 +32,8 @@ public class Model {
 
    private final ObservableList<Warehouse> warehouses;
    private final ObservableList<RentalWarehouse> rentalwarehouses;
+
+   private static final Logger logger = LogManager.getLogger(Model.class);
 
     private Model() {
         this.viewFactory = new ViewFactory();
@@ -84,9 +88,10 @@ public class Model {
 
                 // Set login success flag
                 this.ownerLoginSuccessFlag = true;
+                logger.info("Owner Credentials successful");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Error evaluating owner credentials: {}", e.getMessage());
         }
     }
 
@@ -102,9 +107,10 @@ public class Model {
                 this.admin.userNameProperty().set(adminEntity.getUsername());
                 this.admin.dateProperty().set(adminEntity.getCreatedAt());
                 this.adminLoginSuccessFlag = true;
+                logger.info("Admin credentials successful");
             }
         } catch ( Exception e) {
-            e.printStackTrace();
+            logger.error("Error evaluating admin credentials: {}", e.getMessage());
         }
     }
 
@@ -124,9 +130,10 @@ public class Model {
                 this.agent.commissionRateProperty().set(agentEntity.getCommissionRate());
                 this.agent.dateProperty().set(agentEntity.getCreatedAt());
                 this.agentLoginSuccessFlag = true;
+                logger.info("Agent credentials successful");
             }
         } catch ( Exception e) {
-            e.printStackTrace();
+            logger.error("Error evaluating agent credentials: {}", e.getMessage());
         }
     }
 

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/AdminDashboard.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Admin.AdminDashboardController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/AdminDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Admin.AdminDashboardController">
     <VBox layoutY="154.0" prefHeight="223.0" prefWidth="850.0" styleClass="dashboard" AnchorPane.bottomAnchor="377.0"
           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Welcome to the Admin Dashboard"/>

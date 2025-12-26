@@ -2,6 +2,8 @@ package com.jmc.warehouse.Models;
 
 import com.jmc.warehouse.Models.Entities.*;
 import com.jmc.warehouse.Views.ClimaticConditions;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Internal;
 import org.hibernate.query.Query;
 import org.hibernate.Transaction;
@@ -13,12 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseDriver {
+    private static final Logger logger = LogManager.getLogger(DataBaseDriver.class);
     public DataBaseDriver() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            System.out.println("Hibernate connected successfully!");
+            logger.info("Hibernate connected successfully!");
         } catch (Exception e) {
-            System.err.println("Hibernate connection failed: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Hibernate connection failed", e);
         }
     }
 
@@ -32,7 +34,7 @@ public class DataBaseDriver {
 
             return query.uniqueResultOptional().orElse(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get owner data", e);
             return null;
         }
     }
@@ -47,7 +49,7 @@ public class DataBaseDriver {
 
             return query.uniqueResultOptional().orElse(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get agent data with username and password", e);
             return null;
         }
     }
@@ -62,7 +64,7 @@ public class DataBaseDriver {
 
             return query.uniqueResultOptional().orElse(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get admin data", e);
             return null;
         }
     }
@@ -74,7 +76,7 @@ public class DataBaseDriver {
             Query<AgentEntity> query = session.createQuery(hql, AgentEntity.class);
             return query.list();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get all agent data");
             return new ArrayList<>();
         }
     }
@@ -84,7 +86,7 @@ public class DataBaseDriver {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(AgentEntity.class, agentId);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get agent by id={}", agentId, e);
             return null;
         }
     }
@@ -97,7 +99,7 @@ public class DataBaseDriver {
             query.setParameter("agentId", agentId);
             return query.list();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get warehous by agent id={}", agentId, e);
             return null;
         }
     }
@@ -114,7 +116,7 @@ public class DataBaseDriver {
             query.setParameter("ownerId", ownerId);
             return query.list();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get warehouse by owner id={}", ownerId, e);
             return null;
         }
     }
@@ -125,7 +127,7 @@ public class DataBaseDriver {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(WarehouseEntity.class, id);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get warehouse by id={}", id, e);
             return null;
         }
     }
@@ -144,7 +146,7 @@ public class DataBaseDriver {
             query.setParameter("agentId", agentId);
             return query.list();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get rental warehouse by agent id={}", agentId, e);
             return null;
         }
     }
@@ -154,7 +156,7 @@ public class DataBaseDriver {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(RentalWarehouseEntity.class, id);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to get rental warehouse by id={}", id, e);
             return null;
         }
     }
@@ -170,12 +172,13 @@ public class DataBaseDriver {
             transaction = session.beginTransaction();
             session.persist(owner);
             transaction.commit();
+            logger.info("Owner created successfully username={}", owner.getUsername());
             return true;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            logger.error("Failed to create owner");
             return false;
         } finally {
             session.close();
@@ -191,12 +194,13 @@ public class DataBaseDriver {
             transaction = session.beginTransaction();
             session.persist(agent);
             transaction.commit();
+            logger.info("Agent created successfully: username={}", agent.getUsername());
             return true;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            logger.error("Failed to create agent");
             return false;
         } finally {
             session.close();
@@ -211,12 +215,13 @@ public class DataBaseDriver {
             transaction = session.beginTransaction();
             session.persist(warehouse);
             transaction.commit();
+            logger.info("Warehouse created successfully name={}", warehouse.getName());
             return true;
         } catch (Exception e) {
             if(transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            logger.error("Failed to create warehouse");
             return false;
         } finally {
             session.close();
@@ -231,12 +236,13 @@ public class DataBaseDriver {
             transaction = session.beginTransaction();
             session.persist(rentalWarehouse);
             transaction.commit();
+            logger.info("Rental warehouse created successfully id={}", rentalWarehouse.getWarehouseId());
             return true;
         } catch (Exception e) {
             if(transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            logger.error("Failed to create rental warehouse");
             return false;
         } finally {
             session.close();
@@ -261,8 +267,7 @@ public class DataBaseDriver {
             // Load existing entity
             RentalWarehouseEntity rentalWarehouse = session.get(RentalWarehouseEntity.class, id);
             if (rentalWarehouse == null) {
-                System.out.println("Rental warehouse not found");
-                System.out.println(id);
+                logger.warn("Rental warehouse not found id={}", id);
                 return false;
             }
             // Update ONLY fields that are NOT NULL
@@ -281,10 +286,11 @@ public class DataBaseDriver {
             // Persist ONLY updated fields
             session.update(rentalWarehouse);
             transaction.commit();
+            logger.info("Rental warehouse successfully updated");
             return true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
-            e.printStackTrace();
+            logger.error("Failed to updating rental warehouse");
             return false;
         } finally {
             session.close();
@@ -300,7 +306,7 @@ public class DataBaseDriver {
             // Load existing entity
             WarehouseEntity warehouse = session.get(WarehouseEntity.class, id);
             if(warehouse == null) {
-                System.out.println("Warehouse not found");
+                logger.warn("Warehouse nod found");
                 return false;
             }
             // Update ONLY fields that are NOT NULL
@@ -334,18 +340,20 @@ public class DataBaseDriver {
 
             session.update(warehouse);  // Use merge to update
             transaction.commit();
+            logger.info("Warehouse successfully updated");
             return true;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            logger.error("Failed to updating warehouse");
             return false;
         } finally {
             session.close();
         }
     }
 
+    /*
     // Update warehouse rental
     public boolean updateRentalWarehouse(RentalWarehouseEntity rental) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -405,5 +413,7 @@ public class DataBaseDriver {
             session.close();
         }
     }
+
+     */
 
 }

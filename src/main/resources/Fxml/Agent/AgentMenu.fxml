@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="200.0" styleClass="menu_controller" stylesheets="@../../Styles/Menu.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Agent.AgentMenuController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="200.0" styleClass="menu_controller" stylesheets="@../../Styles/Menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Agent.AgentMenuController">
     <Button fx:id="create_form_btn" mnemonicParsing="false" text="Create a rental form" />
     <Line endX="150.0" />
     <Button fx:id="reports_btn" mnemonicParsing="false" text="Reports" />

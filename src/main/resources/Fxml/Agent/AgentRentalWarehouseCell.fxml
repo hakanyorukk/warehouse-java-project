@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxWidth="800.0" prefHeight="60.0" prefWidth="700.0" styleClass="list-view" stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxWidth="800.0" prefHeight="60.0" prefWidth="700.0" styleClass="list-view" stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <Label fx:id="tenant_name" layoutX="21.0" layoutY="22.0" prefHeight="17.0" prefWidth="158.0" text="Tenant Name" />
     <Label fx:id="monthly_price" layoutX="244.0" layoutY="22.0" prefHeight="17.0" prefWidth="54.0" text="400" />
     <Label fx:id="end_date" layoutX="393.0" layoutY="22.0" prefHeight="17.0" prefWidth="68.0" text="end_date" />

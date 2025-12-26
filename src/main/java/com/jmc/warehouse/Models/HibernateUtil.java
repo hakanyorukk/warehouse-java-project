@@ -1,33 +1,35 @@
 package com.jmc.warehouse.Models;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
     private static SessionFactory sessionFactory;
+    private static final Logger logger = LogManager.getLogger(HibernateUtil.class);
 
     static {
         try {
-            System.out.println("Initializing Hibernate SessionFactory...");
+            logger.info("Initializing Hibernate SessionFactory...");
 
             // Create the SessionFactory from hibernate.cfg.xml
             sessionFactory = new Configuration()
                     .configure("hibernate.cfg.xml")
                     .buildSessionFactory();
+            logger.info("SessionFactory created successfully");
 
-            System.out.println("✅ SessionFactory created successfully!");
 
         } catch (Throwable ex) {
-            System.err.println("❌ SessionFactory creation failed!");
-            System.err.println("Error: " + ex.getMessage());
-            ex.printStackTrace();
+            logger.error("SessionFactory creation failed={}", ex.getMessage());
             throw new ExceptionInInitializerError(ex);
         }
     }
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
+            logger.error("SessionFactory is not initialized");
             throw new IllegalStateException("SessionFactory is not initialized!");
         }
         return sessionFactory;
@@ -35,9 +37,9 @@ public class HibernateUtil {
 
     public static void shutdown() {
         if (sessionFactory != null && !sessionFactory.isClosed()) {
-            System.out.println("Shutting down Hibernate...");
+            logger.info("Shutting down Hibernate...");
             sessionFactory.close();
-            System.out.println("✅ SessionFactory closed");
+            logger.info("SessionFactory closed");
         }
     }
 }

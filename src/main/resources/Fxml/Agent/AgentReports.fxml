@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="listview_container"
-            stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/25"
+            stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.jmc.warehouse.Controllers.Agent.AgentReportsController">
     <Text layoutX="303.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented Warehouses"/>

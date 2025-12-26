@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="owner_parent" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane fx:id="owner_parent" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
 
     <left>
         <fx:include source="OwnerMenu.fxml"/>

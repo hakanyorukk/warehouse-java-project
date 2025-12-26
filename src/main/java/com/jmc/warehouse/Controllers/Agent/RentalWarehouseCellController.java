@@ -6,9 +6,12 @@ import com.jmc.warehouse.Views.AgentMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class RentalWarehouseCellController implements Initializable {
     private final RentalWarehouse rentalWarehouse;
@@ -18,7 +21,7 @@ public class RentalWarehouseCellController implements Initializable {
     public Label warehouse_name;
     public Button edit_rentalWarehouse;
     public Label start_date;
-
+    private static final Logger logger = LogManager.getLogger(RentalWarehouseCellController.class);
     public RentalWarehouseCellController(RentalWarehouse rentalWarehouse) {
         this.rentalWarehouse = rentalWarehouse;
     }
@@ -34,6 +37,7 @@ public class RentalWarehouseCellController implements Initializable {
     }
 
     private void onEditRentalForm(int rentalWarehouseId) {
+        logger.info("Edit rental form clicked");
         Model.getInstance().setRentalWarehouseToEdit(rentalWarehouseId);
         Model.getInstance().getViewFactory().showRentalWarehouseEditWindow();
        // Model.getInstance().getViewFactory().getAgentSelectedMenuItem().set(AgentMenuOptions.CREATE_RENTAL_FORM);

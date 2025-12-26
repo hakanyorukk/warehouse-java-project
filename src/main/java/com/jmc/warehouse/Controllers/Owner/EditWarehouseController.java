@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,6 +31,7 @@ public class EditWarehouseController implements Initializable {
     public Button warehouse_btn;
     public Label error_lbl;
     private final Warehouse warehouse;
+    private static final Logger logger = LogManager.getLogger(EditWarehouseController.class);
 
     public EditWarehouseController(Warehouse warehouse) {
         this.warehouse = warehouse;
@@ -83,6 +86,7 @@ public class EditWarehouseController implements Initializable {
     }
 
     public void onEditWarehouse() {
+        logger.info("Edit Warehouse Button clicked");
         OwnerEntity currentOwner = Model.getInstance().getCurrentOwner();
         String name = warehouse_name.getText();
         String address = warehouse_address.getText();
@@ -100,16 +104,19 @@ public class EditWarehouseController implements Initializable {
         try {
             area = Double.parseDouble(areaStr);
         } catch (NumberFormatException e) {
+            logger.warn("Area is not a double");
             error_lbl.setText("Invalid area value.");
             return;
         }
         //WarehouseEntity warehouse = new WarehouseEntity(name, address, dimensions, area, LocalDate.now(), currentOwner, climaticCon, assignedAgent);
         boolean success = Model.getInstance().getDatabaseDriver().updateWarehouse(this.warehouse.getId(), name, address, dimensions, area, climaticCon, assignedAgent);
-
+        logger.debug("Calling Edit warehouse service name={}", name);
         if (success) {
-            error_lbl.setText("Warehouse created successfully!");
+            logger.info("Warehouse edited successfully");
+            error_lbl.setText("Warehouse edited successfully!");
             error_lbl.setStyle("-fx-text-fill: green;");
         } else {
+            logger.error("Error editing warehouse!");
             error_lbl.setText("Error editing warehouse!");
             error_lbl.setStyle("-fx-text-fill: red;");
         }

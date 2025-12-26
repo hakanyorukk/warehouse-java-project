@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_form" stylesheets="@../../Styles/Profile.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Owner.OwnerProfileController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_form" stylesheets="@../../Styles/Profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.warehouse.Controllers.Owner.OwnerProfileController">
     <Text layoutX="64.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Warehouses" />
    <ListView fx:id="warehouses_listview" layoutX="25.0" layoutY="116.0" prefHeight="600.0" prefWidth="800.0" styleClass="listview_container" stylesheets="@../../Styles/Listview.css" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="110.0" />
 </AnchorPane>

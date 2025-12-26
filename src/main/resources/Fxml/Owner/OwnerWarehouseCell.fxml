@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxWidth="800.0" prefHeight="60.0" prefWidth="700.0" styleClass="list-view" stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxWidth="800.0" prefHeight="60.0" prefWidth="700.0" styleClass="list-view" stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <Label fx:id="warehouse_name" layoutX="21.0" layoutY="22.0" text="Big Warehouse" />
     <Label fx:id="warehouse_address" layoutX="173.0" layoutY="22.0" prefHeight="17.0" prefWidth="92.0" text="Varna. Studenska" />
     <Label fx:id="warehouse_area" layoutX="418.0" layoutY="22.0" text="40m" />

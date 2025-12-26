@@ -5,6 +5,8 @@ import com.jmc.warehouse.Models.Model;
 import com.jmc.warehouse.Models.RentalWarehouse;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.net.URL;
@@ -19,6 +21,7 @@ public class EditRentalWarehouseController implements Initializable {
     public Button create_btn;
     public Label error_lbl;
     private final RentalWarehouse rentalWarehouse;
+    private static final Logger logger = LogManager.getLogger(EditRentalWarehouseController.class);
 
     public EditRentalWarehouseController(RentalWarehouse rentalWarehouse) {
         this.rentalWarehouse = rentalWarehouse;
@@ -42,14 +45,16 @@ public class EditRentalWarehouseController implements Initializable {
         BigDecimal monthlyPrice = new BigDecimal(monthly_price_fld.getText().trim());
         LocalDate startDate = start_date_picker.getValue();
         LocalDate endDate = end_date_picker.getValue();
-
+        logger.info("Edit button clicked");
         try {
             monthlyPrice = BigDecimal.valueOf(Double.parseDouble(monthlyPriceStr));
         } catch (NumberFormatException e) {
+            logger.error("Invalid monthly price");
             error_lbl.setText("Invalid monthly price.");
             return;
         }
         if (tenantName.isEmpty() || start_date_picker.getValue() == null || end_date_picker.getValue() == null) {
+            logger.warn("Editing rental warehouse failed: missing fields");
             error_lbl.setText("Please fill in all fields.");
             return;
         }
@@ -62,16 +67,16 @@ public class EditRentalWarehouseController implements Initializable {
         boolean success = Model.getInstance().getDatabaseDriver().updateRentalWarehouse(this.rentalWarehouse.getId(), tenantName, monthlyPrice, startDate, endDate);
 
         if (success) {
-            error_lbl.setText("Warehouse edited successfully!");
+            logger.info("Rental warehouse edited successfully");
+            error_lbl.setText("Rental warehouse edited successfully!");
             error_lbl.setStyle("-fx-text-fill: green;");
             //clearFields();
         } else {
+            logger.error("Failed to edit");
             error_lbl.setText("Error editing rental warehouse!");
             error_lbl.setStyle("-fx-text-fill: red;");
         }
-        //Model.getInstance().getViewFactory().closeRentalWarehouseEditWindow();
 
-        // Refresh the Agent's rental warehouses
         AgentEntity currentAgent = Model.getInstance().getCurrentAgent();
         Model.getInstance().setAgentRentalWarehouses(currentAgent);
     }
