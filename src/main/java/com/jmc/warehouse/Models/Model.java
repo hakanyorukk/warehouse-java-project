@@ -33,7 +33,11 @@ public class Model {
    private final ObservableList<Warehouse> warehouses;
    private final ObservableList<RentalWarehouse> rentalwarehouses;
 
-   private static final Logger logger = LogManager.getLogger(Model.class);
+    private final ObservableList<AgentNotification> agentNotifications;
+    private final ObservableList<OwnerNotification> ownerNotifications;
+
+
+    private static final Logger logger = LogManager.getLogger(Model.class);
 
     private Model() {
         this.viewFactory = new ViewFactory();
@@ -51,6 +55,9 @@ public class Model {
         this.currentOwner = new SimpleObjectProperty<>();
         this.warehouses = FXCollections.observableArrayList();
         this.rentalwarehouses = FXCollections.observableArrayList();
+        this.agentNotifications = FXCollections.observableArrayList();
+        this.ownerNotifications = FXCollections.observableArrayList();
+
     }
 
     public static synchronized Model getInstance() {
@@ -196,6 +203,55 @@ public class Model {
             rentalwarehouses.add(rentalwarehouse);
         }
     }
+
+    // load notifications for agent
+    public ObservableList<AgentNotification> getAgentNotifications() {
+        return agentNotifications;
+    }
+
+    public void setAgentNotifications(AgentEntity currentAgent) {
+        agentNotifications.clear();
+
+        List<AgentNotificationEntity> entities =
+                databaseDriver.getAgentNotificationsByAgentId(
+                        currentAgent.getAgentId()
+                );
+
+        if (entities == null) return;
+
+        for (AgentNotificationEntity entity : entities) {
+            AgentNotification notification =
+                    AgentNotificationConverter.toModel(entity);
+
+            agentNotifications.add(notification);
+        }
+    }
+
+
+    public ObservableList<OwnerNotification> getOwnerNotifications() {
+        return ownerNotifications;
+    }
+
+    public void setOwnerNotifications(OwnerEntity currentOwner) {
+        ownerNotifications.clear();
+
+        List<OwnerNotificationEntity> entities =
+                databaseDriver.getOwnerNotificationsByOwnerId(
+                        currentOwner.getOwnerId()
+                );
+
+        if (entities == null) return;
+
+        for (OwnerNotificationEntity entity : entities) {
+            OwnerNotification notification =
+                    OwnerNotificationConverter.toModel(entity);
+
+            ownerNotifications.add(notification);
+        }
+    }
+
+    // load notifications for owner
+
 
     public RentalWarehouse getRentalWarehouseToEdit() {
         return rentalWarehouse;

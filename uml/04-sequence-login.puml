@@ -1,0 +1,33 @@
+@startuml
+actor User
+participant "LoginController" as LC
+participant "LoginServiceImpl" as LS
+participant "Model (singleton)" as M
+participant "DataBaseDriver" as DB
+participant "ViewFactory" as VF
+
+User -> LC : enter username/password + choose AccountType
+LC -> LS : login(username,password,type)
+
+LS -> M : getDatabaseDriver()
+M --> LS : DB
+
+alt type == ADMIN
+  LS -> DB : getAdminData(username,password)
+  DB --> LS : AdminEntity / null
+  LS -> M : set currentAdmin / set adminLoginSuccessFlag
+else type == OWNER
+  LS -> DB : getOwnerData(username,password)
+  DB --> LS : OwnerEntity / null
+  LS -> M : set currentOwner / set ownerLoginSuccessFlag
+else type == AGENT
+  LS -> DB : getAgentData(username,password)
+  DB --> LS : AgentEntity / null
+  LS -> M : set currentAgent / set agentLoginSuccessFlag
+end
+
+LS -> VF : open correct dashboard window
+LS --> LC : LoginResult (SUCCESS / WRONG_CREDENTIALS)
+
+LC --> User : show dashboard or error message
+@enduml

@@ -1,0 +1,225 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+' =========================
+' MODELS (JavaFX)
+' =========================
+package "Models (JavaFX)" {
+  class Model <<singleton>> {
+    - viewFactory : ViewFactory
+    - databaseDriver : DataBaseDriver
+    - currentAdmin : AdminEntity
+    - currentOwner : OwnerEntity
+    - currentAgent : AgentEntity
+    - warehouses : ObservableList<Warehouse>
+    - rentalwarehouses : ObservableList<RentalWarehouse>
+    - agentNotifications : ObservableList<AgentNotification>
+    - ownerNotifications : ObservableList<OwnerNotification>
+    + getDatabaseDriver() : DataBaseDriver
+    + getCurrentAdmin() : AdminEntity
+    + getCurrentOwner() : OwnerEntity
+    + getCurrentAgent() : AgentEntity
+    + setOwnerWarehouses(owner:OwnerEntity) : void
+    + setAgentWarehouses(agent:AgentEntity) : void
+    + setAgentRentalWarehouses(agent:AgentEntity) : void
+    + setAgentNotifications(agent:AgentEntity) : void
+    + setOwnerNotifications(owner:OwnerEntity) : void
+  }
+
+  class DataBaseDriver {
+    + getAdminData(username, password) : AdminEntity
+    + getOwnerData(username, password) : OwnerEntity
+    + getAgentData(username, password) : AgentEntity
+
+    + createOwner(owner:OwnerEntity) : boolean
+    + createAgent(agent:AgentEntity) : boolean
+
+    + createWarehouse(warehouse:WarehouseEntity) : boolean
+    + updateWarehouse(warehouse:WarehouseEntity) : boolean
+    + getWarehousesByOwnerId(ownerId:int) : List<WarehouseEntity>
+    + getWarehousesByAgentId(agentId:int) : List<WarehouseEntity>
+    + getWarehouseById(id:int) : WarehouseEntity
+
+    + createRentalWarehouse(rental:RentalWarehouseEntity) : boolean
+    + updateRentalWarehouse(rental:RentalWarehouseEntity) : boolean
+    + getRentalWarehousesByAgentId(agentId:int) : List<RentalWarehouseEntity>
+
+    + createAgentNotification(n:AgentNotificationEntity) : boolean
+    + createOwnerNotification(n:OwnerNotificationEntity) : boolean
+    + getAgentNotificationsByAgentId(agentId:int) : List<AgentNotificationEntity>
+    + getOwnerNotificationsByOwnerId(ownerId:int) : List<OwnerNotificationEntity>
+  }
+
+  class HibernateUtil
+
+  class Admin
+  class Owner {
+    - fullName : StringProperty
+    - username : StringProperty
+    - email : StringProperty
+    - phone : StringProperty
+    - taxId : StringProperty
+    - createdBy : AdminEntity
+    - dateCreated : LocalDate
+  }
+  class Agent {
+    - fullName : StringProperty
+    - username : StringProperty
+    - email : StringProperty
+    - phone : StringProperty
+    - commissionRate : DoubleProperty
+    - createdBy : AdminEntity
+    - dateCreated : LocalDate
+  }
+  class Warehouse {
+    - id : IntegerProperty
+    - ownerId : OwnerEntity
+    - name : StringProperty
+    - address : StringProperty
+    - dimensions : StringProperty
+    - area : DoubleProperty
+    - climaticCon : ClimaticConditions
+    - dateCreated : LocalDate
+    - agentId : AgentEntity
+  }
+  class RentalWarehouse {
+    - id : IntegerProperty
+    - warehouseId : WarehouseEntity
+    - agentId : AgentEntity
+    - tenantName : StringProperty
+    - monthlyPrice : BigDecimal
+    - startDate : LocalDate
+    - endDate : LocalDate
+  }
+  class OwnerNotification {
+    - notificationId : IntegerProperty
+    - category : StringProperty
+    - info : StringProperty
+    - owner : OwnerEntity
+  }
+  class AgentNotification {
+    - notificationId : IntegerProperty
+    - category : StringProperty
+    - info : StringProperty
+    - agent : AgentEntity
+  }
+
+  class AgentDTO
+  class WarehouseDTO
+
+  class OwnerConverter
+  class AgentConverter
+  class WarehouseConverter
+  class RentalWarehouseConverter
+  class OwnerNotificationConverter
+  class AgentNotificationConverter
+}
+
+' =========================
+' ENTITIES (JPA/Hibernate)
+' =========================
+package "Entities (JPA)" {
+  class AdminEntity {
+    - adminId : Integer
+    - username : String
+    - password : String
+    - createdAt : LocalDate
+  }
+
+  class OwnerEntity {
+    - ownerId : Integer
+    - fullName : String
+    - username : String
+    - email : String
+    - password : String
+    - phone : String
+    - taxId : String
+    - createdBy : AdminEntity
+    - createdAt : LocalDate
+  }
+
+  class AgentEntity {
+    - agentId : Integer
+    - fullName : String
+    - username : String
+    - email : String
+    - password : String
+    - phone : String
+    - commissionRate : Double
+    - createdBy : AdminEntity
+    - createdAt : LocalDate
+  }
+
+  class WarehouseEntity {
+    - id : Integer
+    - name : String
+    - address : String
+    - dimensions : String
+    - area : Double
+    - climaticConditions : ClimaticConditions
+    - dateCreated : LocalDate
+    - ownerId : OwnerEntity
+    - agentId : AgentEntity
+    - agents : Set<AgentEntity>
+  }
+
+  class RentalWarehouseEntity {
+    - id : Integer
+    - warehouse : WarehouseEntity
+    - agent : AgentEntity
+    - tenantName : String
+    - monthlyPrice : BigDecimal
+    - startDate : LocalDate
+    - endDate : LocalDate
+  }
+
+  class OwnerNotificationEntity {
+    - id : Integer
+    - category : String
+    - info : String
+    - owner : OwnerEntity
+  }
+
+  class AgentNotificationEntity {
+    - id : Integer
+    - category : String
+    - info : String
+    - agent : AgentEntity
+  }
+}
+
+' =========================
+' VIEWS (enums + factory)
+' =========================
+package "Views" {
+  class ViewFactory
+  enum AccountType
+  enum ClimaticConditions
+}
+
+' =========================
+' RELATIONSHIPS
+' =========================
+Model --> DataBaseDriver
+Model --> ViewFactory
+
+OwnerEntity "0..*" --> "1" AdminEntity : createdBy
+AgentEntity "0..*" --> "1" AdminEntity : createdBy
+
+WarehouseEntity "0..*" --> "1" OwnerEntity : ownerId
+WarehouseEntity "0..*" --> "0..1" AgentEntity : agentId
+
+RentalWarehouseEntity "0..*" --> "1" WarehouseEntity : warehouse
+RentalWarehouseEntity "0..*" --> "1" AgentEntity : agent
+
+OwnerNotificationEntity "0..*" --> "1" OwnerEntity : owner
+AgentNotificationEntity "0..*" --> "1" AgentEntity : agent
+
+note right of WarehouseEntity
+The field agents:Set<AgentEntity> exists,
+but the @ManyToMany mapping is commented
+in your code (planned/optional feature).
+end note
+
+@enduml

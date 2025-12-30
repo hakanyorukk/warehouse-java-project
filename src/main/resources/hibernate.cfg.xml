@@ -33,6 +33,8 @@
         <mapping class="com.jmc.warehouse.Models.Entities.AdminEntity"/>
         <mapping class="com.jmc.warehouse.Models.Entities.WarehouseEntity"/>
         <mapping class="com.jmc.warehouse.Models.Entities.RentalWarehouseEntity"/>
+        <mapping class="com.jmc.warehouse.Models.Entities.AgentNotificationEntity"/>
+        <mapping class="com.jmc.warehouse.Models.Entities.OwnerNotificationEntity"/>
 
     </session-factory>
 </hibernate-configuration>

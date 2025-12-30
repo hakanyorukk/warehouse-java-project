@@ -1,0 +1,36 @@
+@startuml
+actor Owner
+participant "CreateWarehouseController" as C
+participant "CreateWarehouseServiceImpl" as S
+participant "Model (singleton)" as M
+participant "DataBaseDriver" as DB
+
+Owner -> C : fill form (name,address,dimensions,area,climate,agentDTO)
+C -> S : createWarehouse(...)
+
+S -> M : getCurrentOwner()
+M --> S : OwnerEntity currentOwner
+
+S -> M : getDatabaseDriver()
+M --> S : DB
+
+S -> DB : getAgentById(agentDTO.agentId)
+DB --> S : AgentEntity assignedAgent
+
+S -> S : new WarehouseEntity(..., currentOwner, climaticCon, assignedAgent)
+S -> DB : createWarehouse(warehouseEntity)
+DB --> S : boolean success
+
+S -> M : setOwnerWarehouses(currentOwner)
+
+alt success == true
+  S -> S : build "New warehouse" notification text
+  S -> DB : createAgentNotification(AgentNotificationEntity)
+  DB --> S : boolean successAgentNotif
+  S --> C : CreateWarehouseResult.SUCCESS
+else
+  S --> C : CreateWarehouseResult.ERROR
+end
+
+C --> Owner : show result message
+@enduml

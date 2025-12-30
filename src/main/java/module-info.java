@@ -9,7 +9,8 @@ module com.jmc.warehouse {
     requires javafx.base;
     requires org.apache.logging.log4j;
     //requires com.jmc.warehouse;
-
+    //requires com.jmc.warehouse;
+    //requires com.jmc.warehouse;
 
     opens com.jmc.warehouse.Models.Entities to org.hibernate.orm.core;
 

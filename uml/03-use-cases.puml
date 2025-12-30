@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+actor Admin
+actor Owner
+actor Agent
+
+rectangle "Warehouse System (JavaFX + Hibernate)" {
+
+  usecase "Login" as UC_Login
+
+  usecase "Create Owner" as UC_CreateOwner
+  usecase "Create Agent" as UC_CreateAgent
+
+  usecase "Create Warehouse\n(assign agent)" as UC_CreateWarehouse
+  usecase "View Owner Warehouses" as UC_ViewOwnerWarehouses
+  usecase "View Owner Notifications" as UC_OwnerNotifs
+
+  usecase "View Available Warehouses" as UC_ViewAgentWarehouses
+  usecase "Create Rental Form\n(rent warehouse)" as UC_RentWarehouse
+  usecase "View Agent Rentals" as UC_ViewAgentRentals
+  usecase "View Agent Notifications" as UC_AgentNotifs
+}
+
+Admin --> UC_Login
+Owner --> UC_Login
+Agent --> UC_Login
+
+Admin --> UC_CreateOwner
+Admin --> UC_CreateAgent
+
+Owner --> UC_CreateWarehouse
+Owner --> UC_ViewOwnerWarehouses
+Owner --> UC_OwnerNotifs
+
+Agent --> UC_ViewAgentWarehouses
+Agent --> UC_RentWarehouse
+Agent --> UC_ViewAgentRentals
+Agent --> UC_AgentNotifs
+
+@enduml

@@ -67,7 +67,7 @@ class CreateRentalWarehouseControllerTest {
     void shouldClearFieldsAndShowSuccessMessage() {
 
         WarehouseDTO warehouse =
-                new WarehouseDTO("WH", "Addr", 100.0, ClimaticConditions.AMBIENT, 1);
+                new WarehouseDTO("WH", "Addr", 100.0, ClimaticConditions.AMBIENT, 1, null);
 
         controller.warehouse_selector.getItems().add(warehouse);
         controller.warehouse_selector.setValue(warehouse);

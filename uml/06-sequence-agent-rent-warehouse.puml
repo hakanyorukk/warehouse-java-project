@@ -1,0 +1,36 @@
+@startuml
+actor Agent
+participant "CreateRentalWarehouseController" as C
+participant "CreateRentalWarehouseServiceImpl" as S
+participant "Model (singleton)" as M
+participant "DataBaseDriver" as DB
+
+Agent -> C : select WarehouseDTO + enter tenant/dates/price
+C -> S : createRentalForm(selectedWarehouseDTO, tenant, price, start, end)
+
+S -> M : getCurrentAgent()
+M --> S : AgentEntity currentAgent
+
+S -> M : getDatabaseDriver()
+M --> S : DB
+
+S -> DB : getWarehouseById(selectedWarehouseDTO.id)
+DB --> S : WarehouseEntity assignedWarehouse
+
+S -> S : new RentalWarehouseEntity(assignedWarehouse,currentAgent,tenant,price,start,end)
+S -> DB : createRentalWarehouse(rentalEntity)
+DB --> S : boolean success
+
+S -> M : setAgentRentalWarehouses(currentAgent)
+
+alt success == true
+  S -> S : build "Warehouse rented" notification text
+  S -> DB : createOwnerNotification(OwnerNotificationEntity)
+  DB --> S : boolean successOwnerNotif
+  S --> C : CreateRentalWarehouseResult.SUCCESS
+else
+  S --> C : CreateRentalWarehouseResult.ERROR
+end
+
+C --> Agent : show result message
+@enduml

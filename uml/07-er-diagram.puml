@@ -1,0 +1,95 @@
+@startuml
+skinparam linetype ortho
+hide methods
+hide stereotypes
+
+entity Admin {
+  + admin_id : INT <<PK>>
+  --
+  username : VARCHAR
+  password : VARCHAR
+  created_at : DATE
+}
+
+entity Owner {
+  + owner_id : INT <<PK>>
+  --
+  full_name : VARCHAR
+  username : VARCHAR
+  email : VARCHAR
+  password : VARCHAR
+  phone : VARCHAR
+  tax_id : VARCHAR
+  created_at : DATE
+  admin_id : INT <<FK>>
+}
+
+entity Agent {
+  + agent_id : INT <<PK>>
+  --
+  full_name : VARCHAR
+  username : VARCHAR
+  email : VARCHAR
+  password : VARCHAR
+  phone : VARCHAR
+  commission_rate : DOUBLE
+  created_at : DATE
+  admin_id : INT <<FK>>
+}
+
+entity Warehouse {
+  + warehouse_id : INT <<PK>>
+  --
+  name : VARCHAR
+  address : VARCHAR
+  dimensions : VARCHAR
+  area : DOUBLE
+  climatic_conditions : ENUM
+  date_created : DATE
+  owner_id : INT <<FK>>
+  agent_id : INT <<FK>>
+}
+
+entity RentalWarehouse {
+  + rental_id : INT <<PK>>
+  --
+  tenant_name : VARCHAR
+  monthly_price : DECIMAL
+  start_date : DATE
+  end_date : DATE
+  warehouse_id : INT <<FK>>
+  agent_id : INT <<FK>>
+}
+
+entity OwnerNotification {
+  + notification_id : INT <<PK>>
+  --
+  category : VARCHAR
+  info : VARCHAR
+  owner_id : INT <<FK>>
+}
+
+entity AgentNotification {
+  + notification_id : INT <<PK>>
+  --
+  category : VARCHAR
+  info : VARCHAR
+  agent_id : INT <<FK>>
+}
+
+' ========================
+' RELATIONSHIPS
+' ========================
+Admin ||--o{ Owner : creates
+Admin ||--o{ Agent : creates
+
+Owner ||--o{ Warehouse : owns
+Agent ||--o{ Warehouse : assigned_to
+
+Warehouse ||--o{ RentalWarehouse : rented_as
+Agent ||--o{ RentalWarehouse : rents
+
+Owner ||--o{ OwnerNotification : receives
+Agent ||--o{ AgentNotification : receives
+
+@enduml

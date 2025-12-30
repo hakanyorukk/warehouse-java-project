@@ -1,0 +1,96 @@
+@startuml
+skinparam packageStyle rectangle
+left to right direction
+
+package "Controllers\n(com.jmc.warehouse.Controllers)" as C {
+  class LoginController
+  package Admin {
+    class AdminController
+    class AdminDashboardController
+    class AdminMenuController
+    class CreateAgent
+    class CreateOwner
+  }
+  package Owner {
+    class OwnerController
+    class OwnerMenuController
+    class OwnerDashboardController
+    class CreateWarehouseController
+    class OwnerNotificationsController
+  }
+  package Agent {
+    class AgentController
+    class AgentMenuController
+    class AgentProfileController
+    class AgentNotificationsController
+    class CreateRentalWarehouseController
+  }
+}
+
+package "Services\n(com.jmc.warehouse.Services)" as S {
+  interface LoginService
+  class LoginServiceImpl
+
+  package Admin {
+    interface CreateOwnerService
+    class CreateOwnerServiceImpl
+    interface CreateAgentService
+    class CreateAgentServiceImpl
+  }
+
+  package Owner {
+    interface CreateWarehouseService
+    class CreateWarehouseServiceImpl
+  }
+
+  package Agent {
+    interface CreateRentalWarehouseService
+    class CreateRentalWarehouseServiceImpl
+  }
+}
+
+package "Models\n(com.jmc.warehouse.Models)" as M {
+  class Model <<singleton>>
+  class DataBaseDriver
+  class HibernateUtil
+
+  class Admin
+  class Owner
+  class Agent
+  class Warehouse
+  class RentalWarehouse
+  class OwnerNotification
+  class AgentNotification
+
+  class AgentDTO
+  class WarehouseDTO
+
+  class OwnerConverter
+  class AgentConverter
+  class WarehouseConverter
+  class RentalWarehouseConverter
+  class OwnerNotificationConverter
+  class AgentNotificationConverter
+}
+
+package "Entities\n(com.jmc.warehouse.Models.Entities)" as E {
+  class AdminEntity
+  class OwnerEntity
+  class AgentEntity
+  class WarehouseEntity
+  class RentalWarehouseEntity
+  class OwnerNotificationEntity
+  class AgentNotificationEntity
+}
+
+package "Views\n(com.jmc.warehouse.Views)" as V {
+  class ViewFactory
+  enum AccountType
+  enum ClimaticConditions
+}
+
+C --> S
+S --> M
+M --> E
+M --> V
+@enduml

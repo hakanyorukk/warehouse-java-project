@@ -6,7 +6,7 @@
 <AnchorPane maxWidth="800.0" prefHeight="60.0" prefWidth="700.0" styleClass="list-view"
             stylesheets="@../../Styles/Listview.css" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1">
-    <Label fx:id="notification_category" layoutX="21.0" layoutY="22.0" prefHeight="17.0" prefWidth="122.0"
-           text="Warehouse rented"/>
-    <Label fx:id="warehouse" layoutX="146.0" layoutY="22.0" prefHeight="17.0" prefWidth="528.0" text="warehouse"/>
+    <Label fx:id="notification_category" layoutX="21.0" layoutY="22.0" prefHeight="17.0" prefWidth="232.0"
+           text="You have assigned to a new warehouse: "/>
+    <Label fx:id="warehouse" layoutX="279.0" layoutY="22.0" prefHeight="17.0" prefWidth="395.0" text="warehouse"/>
 </AnchorPane>

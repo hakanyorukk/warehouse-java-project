@@ -207,7 +207,7 @@ public class ViewFactory {
                 List<WarehouseEntity> warehouses = Model.getInstance().getDatabaseDriver().getWarehousesByAgentId(currentAgent.getAgentId());
                 List<WarehouseDTO> warehouesesList = new ArrayList<>();
                 for(WarehouseEntity warehouse: warehouses) {
-                    warehouesesList.add(new WarehouseDTO(warehouse.getName(), warehouse.getAddress(), warehouse.getArea(), warehouse.getClimaticConditions(), warehouse.getId()));
+                    warehouesesList.add(new WarehouseDTO(warehouse.getName(), warehouse.getAddress(), warehouse.getArea(), warehouse.getClimaticConditions(), warehouse.getId(), warehouse.getOwnerId()));
                 }
 
                 // Assign agents

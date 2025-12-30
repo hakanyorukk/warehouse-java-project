@@ -1,5 +1,7 @@
 package com.jmc.warehouse.Models;
 
+import com.jmc.warehouse.Models.Entities.AgentEntity;
+import com.jmc.warehouse.Models.Entities.OwnerEntity;
 import com.jmc.warehouse.Views.ClimaticConditions;
 
 public class WarehouseDTO {
@@ -8,13 +10,15 @@ public class WarehouseDTO {
     private Double area;
     private ClimaticConditions climaticCon;
     private Integer id;
+    private OwnerEntity ownerId;
 
-    public WarehouseDTO(String name, String address, Double area, ClimaticConditions climaticCon, Integer id) {
+    public WarehouseDTO(String name, String address, Double area, ClimaticConditions climaticCon, Integer id, OwnerEntity ownerId) {
         this.name = name;
         this.address = address;
         this.area = area;
         this.climaticCon = climaticCon;
         this.id = id;
+        this.ownerId = ownerId;
     }
 
     public String getName() {
@@ -35,6 +39,10 @@ public class WarehouseDTO {
 
     public Integer getId() {
         return id;
+    }
+
+    public OwnerEntity getOwnerId() {
+        return ownerId;
     }
 
     @Override

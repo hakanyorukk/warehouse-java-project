@@ -1,6 +1,7 @@
 package com.jmc.warehouse.Services;
 import com.jmc.warehouse.Models.Entities.AdminEntity;
 import com.jmc.warehouse.Models.Entities.AgentEntity;
+import com.jmc.warehouse.Models.Entities.AgentNotificationEntity;
 import com.jmc.warehouse.Models.Entities.OwnerEntity;
 import com.jmc.warehouse.Models.Model;
 
@@ -38,6 +39,7 @@ public class LoginServiceImpl implements LoginService {
                 if (model.getOwnerLoginSuccessFlag()) {
                     model.setCurrentOwner(owner);
                     model.setOwnerWarehouses(owner);
+                    model.setOwnerNotifications(owner);
                     return LoginResult.SUCCESS;
                 }
             }
@@ -50,6 +52,7 @@ public class LoginServiceImpl implements LoginService {
                 if (model.getAgentLoginSuccessFlag()) {
                     model.setCurrentAgent(agent);
                     model.setAgentRentalWarehouses(agent);
+                    model.setAgentNotifications(agent);
                     return LoginResult.SUCCESS;
                 }
             }

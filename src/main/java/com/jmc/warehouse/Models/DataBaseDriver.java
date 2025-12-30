@@ -161,6 +161,45 @@ public class DataBaseDriver {
         }
     }
 
+    public List<AgentNotificationEntity> getAgentNotificationsByAgentId(Integer agentId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = """
+            FROM AgentNotificationEntity n
+            WHERE n.agent.agentId = :agentId
+            ORDER BY n.notificationId DESC
+        """;
+
+            return session.createQuery(hql, AgentNotificationEntity.class)
+                    .setParameter("agentId", agentId)
+                    .list();
+        } catch (Exception e) {
+            logger.error("Failed to load agent notifications", e);
+            return List.of();
+        }
+    }
+
+    public List<OwnerNotificationEntity> getOwnerNotificationsByOwnerId(Integer ownerId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = """
+            FROM OwnerNotificationEntity n
+            WHERE n.owner.ownerId = :ownerId
+            ORDER BY n.notificationId DESC
+        """;
+
+            return session.createQuery(hql, OwnerNotificationEntity.class)
+                    .setParameter("ownerId", ownerId)
+                    .list();
+        } catch (Exception e) {
+            logger.error("Failed to load owner notifications", e);
+            return List.of();
+        }
+    }
+
+
+
+
+//============CREATE==================
+
 
 
     // Create new Owner
@@ -249,6 +288,47 @@ public class DataBaseDriver {
         }
     }
 
+    // create agent notification
+    public boolean createAgentNotification(AgentNotificationEntity agentNotification) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.persist(agentNotification);
+            transaction.commit();
+            logger.info("Agent notification created successfully id={}", agentNotification.getNotificationId());
+            return true;
+        } catch (Exception e) {
+            if(transaction != null) {
+                transaction.rollback();
+            }
+            logger.error("Failed to create agent notification, {}", e.getMessage());
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    // create owner notification
+    public boolean createOwnerNotification(OwnerNotificationEntity ownerNotification) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.persist(ownerNotification);
+            transaction.commit();
+            logger.info("Owner notification created successfully id={}", ownerNotification.getNotificationId());
+            return true;
+        } catch (Exception e) {
+            if(transaction != null) {
+                transaction.rollback();
+            }
+            logger.error("Failed to create owner notification, {}", e.getMessage());
+            return false;
+        } finally {
+            session.close();
+        }
+    }
 
     // ==================== UPDATE OPERATIONS ====================
 

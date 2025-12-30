@@ -93,3 +93,325 @@
 2025-12-26 08:39:38 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
 2025-12-26 08:39:38 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateAgent - Calling createAgent service with username=
 2025-12-26 08:39:38 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Agent creation failed: missing fields
+2025-12-26 09:03:33 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 09:03:34 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 09:03:34 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 09:03:34 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 09:03:36 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 09:03:43 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 09:03:43 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 09:03:43 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_B
+2025-12-26 09:03:43 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 09:03:43 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 09:03:43 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 09:03:46 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Reports button clicked
+2025-12-26 09:03:47 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 09:03:49 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Profile button clicked
+2025-12-26 09:03:50 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Warehouse button clicked
+2025-12-26 09:04:02 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Logout button clicked
+2025-12-26 09:04:02 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Current stage closed
+2025-12-26 09:04:02 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Login page opened
+2025-12-26 09:04:02 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Owner login flag setted to false
+2025-12-26 10:45:45 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 10:45:45 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 10:45:46 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 10:45:46 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 10:45:49 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 10:45:56 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 10:45:56 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 10:45:56 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_B
+2025-12-26 10:45:56 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 10:45:56 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 10:45:56 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 10:45:57 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Warehouse button clicked
+2025-12-26 10:46:25 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Create warehouse clicked
+2025-12-26 10:46:25 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Warehouse created successfully name=Notification Test
+2025-12-26 10:46:25 [ERROR] com.jmc.warehouse.Models.DataBaseDriver - Failed to create agent notification, Unable to locate persister: com.jmc.warehouse.Models.Entities.AgentNotificationEntity
+2025-12-26 10:46:25 [DEBUG] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Calling create warehouse name=Notification Test
+2025-12-26 10:46:25 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Warehouse created successfully
+2025-12-26 10:48:52 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 10:48:53 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 10:48:53 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 10:48:53 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 10:48:56 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 10:49:01 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 10:49:01 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 10:49:01 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_A
+2025-12-26 10:49:01 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 10:49:01 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 10:49:01 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 10:49:02 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Warehouse button clicked
+2025-12-26 10:49:24 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Create warehouse clicked
+2025-12-26 10:49:24 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Warehouse created successfully name=Notification test
+2025-12-26 10:49:24 [ERROR] com.jmc.warehouse.Models.DataBaseDriver - Failed to create agent notification, Unable to locate persister: com.jmc.warehouse.Models.Entities.AgentNotificationEntity
+2025-12-26 10:49:24 [ERROR] com.jmc.warehouse.Services.Owner.CreateWarehouseServiceImpl - Error creating notification
+2025-12-26 10:49:24 [DEBUG] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Calling create warehouse name=Notification test
+2025-12-26 10:49:24 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Warehouse created successfully
+2025-12-26 10:51:44 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 10:51:44 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 10:51:45 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 10:51:45 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 10:51:48 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 10:51:52 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 10:51:52 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 10:51:52 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_A
+2025-12-26 10:51:52 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 10:51:52 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 10:51:53 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 10:51:54 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Warehouse button clicked
+2025-12-26 10:52:12 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Create warehouse clicked
+2025-12-26 10:52:12 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Warehouse created successfully name=Notification Test
+2025-12-26 10:52:12 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Agent notification created successfully id=2
+2025-12-26 10:52:12 [DEBUG] com.jmc.warehouse.Services.Owner.CreateWarehouseServiceImpl - Notification created: AgentNotificationEntity{notificationId=2, category='New warehouse', info='Notification Testtest123123.4COOLED'}
+2025-12-26 10:52:12 [DEBUG] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Calling create warehouse name=Notification Test
+2025-12-26 10:52:12 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Warehouse created successfully
+2025-12-26 10:55:20 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 10:55:20 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 10:55:21 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 10:55:21 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 10:55:23 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 10:55:29 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 10:55:29 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 10:55:29 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=Owner_A
+2025-12-26 10:55:29 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 10:55:29 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 10:55:30 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 10:55:31 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Warehouse button clicked
+2025-12-26 10:55:55 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Create warehouse clicked
+2025-12-26 10:55:55 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Warehouse created successfully name=Big warehouse
+2025-12-26 10:55:55 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Agent notification created successfully id=3
+2025-12-26 10:55:55 [DEBUG] com.jmc.warehouse.Services.Owner.CreateWarehouseServiceImpl - Notification created: AgentNotificationEntity{notificationId=3, category='New warehouse', info='Id: 26Big warehouse, Address: big street, Area: 120.45, COOLED'}
+2025-12-26 10:55:55 [DEBUG] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Calling create warehouse name=Big warehouse
+2025-12-26 10:55:55 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Warehouse created successfully
+2025-12-26 15:49:23 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 15:49:23 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 15:49:24 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 15:49:24 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 15:49:26 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-26 15:49:32 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 15:49:32 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-26 15:49:32 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_A
+2025-12-26 15:49:32 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 15:49:32 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 15:49:32 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 15:50:30 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 15:50:30 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-26 15:50:30 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_C
+2025-12-26 15:50:30 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 15:50:30 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 15:50:30 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 16:30:36 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 16:30:36 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 16:30:37 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 16:30:37 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 16:30:39 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-26 16:30:44 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 16:30:44 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-26 16:30:44 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_A
+2025-12-26 16:30:44 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 16:30:44 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 16:30:45 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 16:31:09 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:31:09 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Test
+2025-12-26 16:31:09 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Rental warehouse created successfully id=Warehouse A
+2025-12-26 16:31:09 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Owner notification created successfully id=1
+2025-12-26 16:31:09 [DEBUG] com.jmc.warehouse.Services.Agent.CreateRentalWarehouseServiceImpl - Notification created: OwnerNotificationEntity{notificationId=1, category='Warehouse rented', info='Id: 1, Warehouse A, Address: 123 Industrial Street, Area: 150.0, '}
+2025-12-26 16:31:09 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-26 16:31:44 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:31:44 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Test
+2025-12-26 16:31:44 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Rental warehouse created successfully id=Warehouse B
+2025-12-26 16:31:44 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Owner notification created successfully id=2
+2025-12-26 16:31:44 [DEBUG] com.jmc.warehouse.Services.Agent.CreateRentalWarehouseServiceImpl - Notification created: OwnerNotificationEntity{notificationId=2, category='Warehouse rented', info='Id: 2, Warehouse B, Address: 456 Storage Avenue, Area: 100.0, '}
+2025-12-26 16:31:44 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-26 16:33:26 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:33:26 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Teste
+2025-12-26 16:33:26 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1264, SQLState: 22001
+2025-12-26 16:33:26 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Data truncation: Out of range value for column 'monthly_price' at row 1
+2025-12-26 16:33:26 [ERROR] com.jmc.warehouse.Models.DataBaseDriver - Failed to create rental warehouse
+2025-12-26 16:33:26 [ERROR] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Failed to create rental warehouse in database
+2025-12-26 16:33:38 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:33:38 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Teste
+2025-12-26 16:33:38 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Rental warehouse created successfully id=New Warehouse
+2025-12-26 16:33:38 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Owner notification created successfully id=3
+2025-12-26 16:33:38 [DEBUG] com.jmc.warehouse.Services.Agent.CreateRentalWarehouseServiceImpl - Notification created: OwnerNotificationEntity{notificationId=3, category='Warehouse rented', info='Id: 21, New Warehouse, Address: df, Area: 100.0, '}
+2025-12-26 16:33:38 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-26 16:40:29 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 16:40:29 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 16:40:30 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 16:40:30 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 16:40:32 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-26 16:40:39 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 16:40:39 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-26 16:40:39 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_B
+2025-12-26 16:40:39 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 16:40:39 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 16:40:39 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 16:41:47 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:41:47 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Test
+2025-12-26 16:41:47 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1264, SQLState: 22001
+2025-12-26 16:41:47 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Data truncation: Out of range value for column 'monthly_price' at row 1
+2025-12-26 16:41:47 [ERROR] com.jmc.warehouse.Models.DataBaseDriver - Failed to create rental warehouse
+2025-12-26 16:41:47 [ERROR] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Failed to create rental warehouse in database
+2025-12-26 16:41:51 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:41:51 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Test
+2025-12-26 16:41:51 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1264, SQLState: 22001
+2025-12-26 16:41:51 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Data truncation: Out of range value for column 'monthly_price' at row 1
+2025-12-26 16:41:51 [ERROR] com.jmc.warehouse.Models.DataBaseDriver - Failed to create rental warehouse
+2025-12-26 16:41:51 [ERROR] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Failed to create rental warehouse in database
+2025-12-26 16:41:55 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 16:41:55 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Test
+2025-12-26 16:41:55 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Rental warehouse created successfully id=Warehouse D
+2025-12-26 16:41:55 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Owner notification created successfully id=4
+2025-12-26 16:41:55 [DEBUG] com.jmc.warehouse.Services.Agent.CreateRentalWarehouseServiceImpl - Notification created: OwnerNotificationEntity{notificationId=4, category='Warehouse rented, ', info='by Agent B( Id: 2), Warehouse Id: 4, Warehouse D, Address: fadsf, Area: 10.0, '}
+2025-12-26 16:41:55 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-26 16:56:12 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 16:56:13 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 16:56:14 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 16:56:14 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 16:56:16 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 16:56:22 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 16:56:22 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 16:56:23 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_A
+2025-12-26 16:56:23 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 16:56:23 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 16:56:23 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 16:56:24 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 16:56:27 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Logout button clicked
+2025-12-26 16:56:27 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Current stage closed
+2025-12-26 16:56:27 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Login page opened
+2025-12-26 16:56:27 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Owner login flag setted to false
+2025-12-26 16:56:34 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 16:56:34 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 16:56:34 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_C
+2025-12-26 16:56:34 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 16:56:34 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 16:56:34 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 16:56:35 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 16:56:36 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 16:56:37 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Reports button clicked
+2025-12-26 16:56:38 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 16:56:42 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Profile button clicked
+2025-12-26 16:56:43 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 16:57:09 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Logout button clicked
+2025-12-26 16:57:09 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Current stage closed
+2025-12-26 16:57:09 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Login page opened
+2025-12-26 16:57:09 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Owner login flag setted to false
+2025-12-26 16:57:14 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 16:57:14 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 16:57:15 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 16:57:15 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 16:57:18 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 16:57:24 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 16:57:24 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 16:57:24 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_C
+2025-12-26 16:57:24 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 16:57:24 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 16:57:24 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 16:57:25 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:00:20 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-26 17:00:20 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-26 17:00:21 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-26 17:00:21 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-26 17:00:24 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 17:00:29 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 17:00:30 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 17:00:30 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_A
+2025-12-26 17:00:30 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 17:00:30 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 17:00:30 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 17:00:31 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:00:33 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Logout button clicked
+2025-12-26 17:00:33 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Current stage closed
+2025-12-26 17:00:33 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Login page opened
+2025-12-26 17:00:33 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Owner login flag setted to false
+2025-12-26 17:00:39 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 17:00:39 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 17:00:39 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_C
+2025-12-26 17:00:39 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 17:00:39 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 17:00:39 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 17:00:40 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:00:41 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:00:41 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Reports button clicked
+2025-12-26 17:00:42 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:00:45 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Logout button clicked
+2025-12-26 17:00:45 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Current stage closed
+2025-12-26 17:00:45 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Login page opened
+2025-12-26 17:00:45 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Owner login flag setted to false
+2025-12-26 17:00:47 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-26 17:00:56 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 17:00:56 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-26 17:00:56 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_A
+2025-12-26 17:00:56 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 17:00:56 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 17:00:56 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 17:01:33 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-26 17:01:33 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Notification Test
+2025-12-26 17:01:33 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Rental warehouse created successfully id=Big Warehouse
+2025-12-26 17:01:33 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Owner notification created successfully id=5
+2025-12-26 17:01:33 [DEBUG] com.jmc.warehouse.Services.Agent.CreateRentalWarehouseServiceImpl - Notification created: OwnerNotificationEntity{notificationId=5, category='Warehouse rented, ', info='by Agent A( Id: 1), Warehouse Id: 12, Big Warehouse, Address: Central, Area: 150.0, '}
+2025-12-26 17:01:33 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-26 17:01:49 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_OWNER
+2025-12-26 17:01:54 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-26 17:01:54 [INFO] com.jmc.warehouse.Models.Model - Owner Credentials successful
+2025-12-26 17:01:54 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=owner_A
+2025-12-26 17:01:54 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-26 17:01:54 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-26 17:01:54 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-26 17:01:57 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:01:58 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Profile button clicked
+2025-12-26 17:01:59 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:02:15 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Profile button clicked
+2025-12-26 17:02:17 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:02:20 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Reports button clicked
+2025-12-26 17:02:20 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Warehouse button clicked
+2025-12-26 17:02:22 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Profile button clicked
+2025-12-26 17:02:22 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Notifications button clicked
+2025-12-26 17:02:24 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Logout button clicked
+2025-12-26 17:02:24 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Current stage closed
+2025-12-26 17:02:24 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Login page opened
+2025-12-26 17:02:24 [INFO] com.jmc.warehouse.Controllers.Owner.OwnerMenuController - Owner login flag setted to false
+2025-12-27 13:58:30 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-27 13:58:31 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-27 13:58:31 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-27 13:58:32 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-27 13:58:35 [DEBUG] com.jmc.warehouse.Views.ViewFactory - Login Account type changed=WAREHOUSE_AGENT
+2025-12-27 13:58:45 [INFO] com.jmc.warehouse.Controllers.LoginController - Login button clicked
+2025-12-27 13:58:46 [INFO] com.jmc.warehouse.Models.Model - Agent credentials successful
+2025-12-27 13:58:46 [DEBUG] com.jmc.warehouse.Controllers.LoginController - Login result called username=agent_A
+2025-12-27 13:58:46 [INFO] com.jmc.warehouse.Controllers.LoginController - LoginResult success
+2025-12-27 13:58:46 [INFO] com.jmc.warehouse.Controllers.LoginController - Navigated to window
+2025-12-27 13:58:46 [WARN] com.jmc.warehouse.Controllers.LoginController - Login window closed
+2025-12-30 11:18:24 [INFO] com.jmc.warehouse.Models.HibernateUtil - Initializing Hibernate SessionFactory...
+2025-12-30 11:18:25 [WARN] org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-30 11:18:26 [INFO] com.jmc.warehouse.Models.HibernateUtil - SessionFactory created successfully
+2025-12-30 11:18:26 [INFO] com.jmc.warehouse.Models.DataBaseDriver - Hibernate connected successfully!
+2025-12-30 11:19:49 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateOwner - Calling createOwner service with username=hakan
+2025-12-30 11:19:49 [ERROR] com.jmc.warehouse.Controllers.Admin.CreateOwner - Owner creation failed due to system error for user=hakan
+2025-12-30 11:19:49 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateOwner - Calling createOwner service with username=hakan
+2025-12-30 11:19:49 [INFO] com.jmc.warehouse.Controllers.Admin.CreateOwner - Owner created successfully:hakan
+2025-12-30 11:20:00 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-30 11:20:00 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=
+2025-12-30 11:20:00 [WARN] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental creation failed: Missing fields
+2025-12-30 11:20:00 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-30 11:20:00 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Tenant A
+2025-12-30 11:20:00 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-30 11:20:12 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-30 11:20:12 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateAgent - Calling createAgent service with username=hakan
+2025-12-30 11:20:12 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Agent creation failed due to system error for user=hakan
+2025-12-30 11:20:12 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-30 11:20:12 [DEBUG] com.jmc.warehouse.Controllers.Admin.CreateAgent - Calling createAgent service with username=hakan
+2025-12-30 11:20:12 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Agent created successfully: hakan
+2025-12-30 11:20:12 [INFO] com.jmc.warehouse.Controllers.Admin.CreateAgent - Create Agent button clicked
+2025-12-30 11:20:12 [WARN] com.jmc.warehouse.Controllers.Admin.CreateAgent - Invalid commission rate entered: abc
+2025-12-30 11:20:20 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-30 11:20:21 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=
+2025-12-30 11:20:21 [WARN] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental creation failed: Missing fields
+2025-12-30 11:20:21 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Create rental form clicked
+2025-12-30 11:20:21 [DEBUG] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Creating rental form for tenant=Tenant A
+2025-12-30 11:20:21 [INFO] com.jmc.warehouse.Controllers.Agent.CreateRentalWarehouseController - Rental warehouse created successfully
+2025-12-30 11:20:29 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Create warehouse clicked
+2025-12-30 11:20:29 [DEBUG] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Calling create warehouse name=Warehouse A
+2025-12-30 11:20:29 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Warehouse created successfully
+2025-12-30 11:20:29 [INFO] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Create warehouse clicked
+2025-12-30 11:20:29 [WARN] com.jmc.warehouse.Controllers.Owner.CreateWarehouseController - Creating Warehouse failed: Missing fields
